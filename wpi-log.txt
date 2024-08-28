@@ -1,0 +1,382 @@
+CF_BINARY: ../scripts/tools/checker-framework-3.34.0/checker/bin/javac
+warning [../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/lib/res.jar]:  zipfile is empty
+../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:236: warning: (argument) $$ 4 $$ val $$ Parcel.writeString $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 7649, 7660 ) $$ incompatible argument for parameter val of Parcel.writeString.
+        dest.writeString(this.mLabel);
+                             ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:238: warning: (argument) $$ 4 $$ p $$ Parcel.writeParcelable $$ @Initialized @Nullable Bitmap $$ @Initialized @NonNull Parcelable $$ ( 7739, 7792 ) $$ incompatible argument for parameter p of Parcel.writeParcelable.
+        dest.writeParcelable(UiUtils.getBitmapFromDrawable(this.mFabImageDrawable), flags);
+                                                          ^
+  found   : @Initialized @Nullable Bitmap
+  required: @Initialized @NonNull Parcelable
+../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:253: warning: (argument) $$ 4 $$ loader $$ Parcel.readParcelable $$ @Initialized @Nullable ClassLoader $$ @Initialized @NonNull ClassLoader $$ ( 8412, 8441 ) $$ incompatible argument for parameter loader of Parcel.readParcelable.
+                UiUtils.getDrawableFromBitmap((Bitmap) in.readParcelable(Bitmap.class.getClassLoader()));
+                                                                                                    ^
+  found   : @Initialized @Nullable ClassLoader
+  required: @Initialized @NonNull ClassLoader
+3 warnings
+An exception has occurred in the compiler (21.0.2). Please file a bug against the Java compiler via the Java bug reporting page (https://bugreport.java.com) after checking the Bug Database (https://bugs.java.com) for duplicates. Include your program, the following diagnostic, and the parameters passed to the Java compiler in your report. Thank you.
+com.sun.tools.javac.util.ClientCodeException: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:880)
+	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:133)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1436)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1393)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:976)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:319)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:178)
+	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+Caused by: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage$1.processVariable(WholeProgramInferenceJavaParserStorage.java:866)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:1414)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:189)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:1040)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:565)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:499)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:189)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:855)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:573)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:480)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.createWrappersForClass(WholeProgramInferenceJavaParserStorage.java:871)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.addClassTree(WholeProgramInferenceJavaParserStorage.java:616)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.preprocessClassTree(WholeProgramInferenceJavaParserStorage.java:587)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceImplementation.preprocessClassTree(WholeProgramInferenceImplementation.java:1154)
+	at org.checkerframework.framework.type.AnnotatedTypeFactory.setRoot(AnnotatedTypeFactory.java:915)
+	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.setRoot(GenericAnnotatedTypeFactory.java:449)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.setRoot(BaseTypeVisitor.java:387)
+	at org.checkerframework.framework.source.SourceChecker.setRoot(SourceChecker.java:685)
+	at org.checkerframework.common.basetype.BaseTypeChecker.setRoot(BaseTypeChecker.java:167)
+	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1074)
+	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:559)
+	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:552)
+	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:876)
+	... 8 more
+printing javac parameters to: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/javac.20240824_015737.args
+entering iteration 1
+../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:162: warning: (initialization.fields.uninitialized) $$ 1 $$ mLabel $$ ( 5292, 5478 ) $$ the constructor does not initialize fields: mLabel
+        public Builder(@IdRes int id, @DrawableRes int fabImageResource) {
+               ^
+../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:175: warning: (initialization.fields.uninitialized) $$ 1 $$ mLabel $$ ( 5907, 6082 ) $$ the constructor does not initialize fields: mLabel
+        public Builder(@IdRes int id, @Nullable Drawable drawable) {
+               ^
+../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:238: warning: (argument) $$ 4 $$ p $$ Parcel.writeParcelable $$ @Initialized @Nullable Bitmap $$ @Initialized @NonNull Parcelable $$ ( 7739, 7792 ) $$ incompatible argument for parameter p of Parcel.writeParcelable.
+        dest.writeParcelable(UiUtils.getBitmapFromDrawable(this.mFabImageDrawable), flags);
+                                                          ^
+  found   : @Initialized @Nullable Bitmap
+  required: @Initialized @NonNull Parcelable
+../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:253: warning: (argument) $$ 4 $$ loader $$ Parcel.readParcelable $$ @Initialized @Nullable ClassLoader $$ @Initialized @NonNull ClassLoader $$ ( 8412, 8441 ) $$ incompatible argument for parameter loader of Parcel.readParcelable.
+                UiUtils.getDrawableFromBitmap((Bitmap) in.readParcelable(Bitmap.class.getClassLoader()));
+                                                                                                    ^
+  found   : @Initialized @Nullable ClassLoader
+  required: @Initialized @NonNull ClassLoader
+4 warnings
+An exception has occurred in the compiler (21.0.2). Please file a bug against the Java compiler via the Java bug reporting page (https://bugreport.java.com) after checking the Bug Database (https://bugs.java.com) for duplicates. Include your program, the following diagnostic, and the parameters passed to the Java compiler in your report. Thank you.
+com.sun.tools.javac.util.ClientCodeException: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:880)
+	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:133)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1436)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1393)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:976)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:319)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:178)
+	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+Caused by: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage$1.processVariable(WholeProgramInferenceJavaParserStorage.java:866)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:1414)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:189)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:1040)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:565)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:499)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:189)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:855)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:573)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:480)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.createWrappersForClass(WholeProgramInferenceJavaParserStorage.java:871)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.addClassTree(WholeProgramInferenceJavaParserStorage.java:616)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.preprocessClassTree(WholeProgramInferenceJavaParserStorage.java:587)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceImplementation.preprocessClassTree(WholeProgramInferenceImplementation.java:1154)
+	at org.checkerframework.framework.type.AnnotatedTypeFactory.setRoot(AnnotatedTypeFactory.java:915)
+	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.setRoot(GenericAnnotatedTypeFactory.java:449)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.setRoot(BaseTypeVisitor.java:387)
+	at org.checkerframework.framework.source.SourceChecker.setRoot(SourceChecker.java:685)
+	at org.checkerframework.common.basetype.BaseTypeChecker.setRoot(BaseTypeChecker.java:167)
+	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1074)
+	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:559)
+	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:552)
+	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:876)
+	... 8 more
+printing javac parameters to: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/javac.20240824_015743.args
+realpath: iteration1.diff: No such file or directory
+putting the diff for iteration 1 into 
+ending iteration 1, time taken: 6 seconds
+
+entering iteration 2
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/Command-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 16,col 1): Package not found: com.google.cloud.tools.jib
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/Command-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 30,col 1): Type not found: com.google.cloud.tools.jib.Command
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/ProjectInfo-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 21,col 1): Type not found: com.google.cloud.tools.jib.ProjectInfo
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/Timer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 18,col 1): Imported type not found: com.google.cloud.tools.jib.builder.BuildLogger
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/Timer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 26,col 1): Type not found: com.google.cloud.tools.jib.Timer
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/blob/Blob-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 16,col 1): Package not found: com.google.cloud.tools.jib.blob
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/blob/Blob-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 24,col 1): Type not found: com.google.cloud.tools.jib.blob.Blob
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/blob/BlobDescriptor-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 18,col 1): Imported type not found: com.google.cloud.tools.jib.hash.CountingDigestOutputStream
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/blob/BlobDescriptor-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 19,col 1): Imported type not found: com.google.cloud.tools.jib.image.DescriptorDigest
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/blob/BlobDescriptor-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 28,col 1): Type not found: com.google.cloud.tools.jib.blob.BlobDescriptor
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/blob/BlobTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 31,col 1): Imported type not found: org.junit.Assert
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/blob/BlobTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 32,col 1): Imported type not found: org.junit.Test
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/blob/BlobTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 33,col 1): Imported type not found: org.mockito.Mockito
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/blob/BlobTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 38,col 1): Type not found: com.google.cloud.tools.jib.blob.BlobTest
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/blob/BlobWriter-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 25,col 1): Type not found: com.google.cloud.tools.jib.blob.BlobWriter
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/blob/Blobs-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 27,col 1): Type not found: com.google.cloud.tools.jib.blob.Blobs
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/blob/FileBlob-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 28,col 1): Type not found: com.google.cloud.tools.jib.blob.FileBlob
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/blob/InputStreamBlob-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 25,col 1): Type not found: com.google.cloud.tools.jib.blob.InputStreamBlob
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/blob/StringBlob-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 27,col 1): Type not found: com.google.cloud.tools.jib.blob.StringBlob
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/blob/WriterBlob-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 25,col 1): Type not found: com.google.cloud.tools.jib.blob.WriterBlob
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/AuthenticatePullStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 18,col 1): Imported type not found: com.google.cloud.tools.jib.Timer
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/AuthenticatePullStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 19,col 1): Imported type not found: com.google.cloud.tools.jib.http.Authorization
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/AuthenticatePullStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 20,col 1): Imported type not found: com.google.cloud.tools.jib.registry.RegistryAuthenticationFailedException
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/AuthenticatePullStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 21,col 1): Imported type not found: com.google.cloud.tools.jib.registry.RegistryAuthenticator
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/AuthenticatePullStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 22,col 1): Imported type not found: com.google.cloud.tools.jib.registry.RegistryAuthenticators
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/AuthenticatePullStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 23,col 1): Imported type not found: com.google.cloud.tools.jib.registry.RegistryException
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/AuthenticatePullStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 16,col 1): Package not found: com.google.cloud.tools.jib.builder
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/AuthenticatePullStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 35,col 1): Type not found: com.google.cloud.tools.jib.builder.AuthenticatePullStep
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/AuthenticatePushStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 36,col 1): Type not found: com.google.cloud.tools.jib.builder.AuthenticatePushStep
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndCacheApplicationLayersStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 19,col 1): Imported type not found: com.google.cloud.tools.jib.cache.Cache
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndCacheApplicationLayersStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 20,col 1): Imported type not found: com.google.cloud.tools.jib.cache.CacheReader
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndCacheApplicationLayersStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 21,col 1): Imported type not found: com.google.cloud.tools.jib.cache.CacheWriter
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndCacheApplicationLayersStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 22,col 1): Imported type not found: com.google.cloud.tools.jib.cache.CachedLayer
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndCacheApplicationLayersStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 23,col 1): Imported type not found: com.google.cloud.tools.jib.image.LayerBuilder
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndCacheApplicationLayersStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 34,col 1): Type not found: com.google.cloud.tools.jib.builder.BuildAndCacheApplicationLayersStep
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndCacheApplicationLayersStepTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 19,col 1): Imported type not found: com.google.cloud.tools.jib.cache.CacheMetadataCorruptedException
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndCacheApplicationLayersStepTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 22,col 1): Imported type not found: com.google.cloud.tools.jib.image.ImageLayers
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndCacheApplicationLayersStepTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 23,col 1): Imported type not found: com.google.cloud.tools.jib.image.LayerPropertyNotFoundException
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndCacheApplicationLayersStepTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 31,col 1): Imported type not found: org.junit.Rule
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndCacheApplicationLayersStepTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 33,col 1): Imported type not found: org.junit.rules.TemporaryFolder
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndCacheApplicationLayersStepTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 34,col 1): Imported type not found: org.junit.runner.RunWith
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndCacheApplicationLayersStepTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 35,col 1): Imported type not found: org.mockito.Mock
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndCacheApplicationLayersStepTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 37,col 1): Imported type not found: org.mockito.junit.MockitoJUnitRunner
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndCacheApplicationLayersStepTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 42,col 1): Type not found: com.google.cloud.tools.jib.builder.BuildAndCacheApplicationLayersStepTest
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndPushContainerConfigurationStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 19,col 1): Imported type not found: com.google.cloud.tools.jib.blob.Blob
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndPushContainerConfigurationStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 20,col 1): Imported type not found: com.google.cloud.tools.jib.blob.BlobDescriptor
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndPushContainerConfigurationStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 24,col 1): Imported type not found: com.google.cloud.tools.jib.image.Image
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndPushContainerConfigurationStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 26,col 1): Imported type not found: com.google.cloud.tools.jib.image.json.ImageToJsonTranslator
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndPushContainerConfigurationStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 27,col 1): Imported type not found: com.google.cloud.tools.jib.registry.RegistryClient
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildAndPushContainerConfigurationStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 40,col 1): Type not found: com.google.cloud.tools.jib.builder.BuildAndPushContainerConfigurationStep
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildConfiguration-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 18,col 1): Imported type not found: com.google.cloud.tools.jib.image.ImageReference
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildConfiguration-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 19,col 1): Imported type not found: com.google.cloud.tools.jib.image.json.BuildableManifestTemplate
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildConfiguration-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 20,col 1): Imported type not found: com.google.cloud.tools.jib.image.json.V22ManifestTemplate
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildConfiguration-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 21,col 1): Imported type not found: com.google.cloud.tools.jib.registry.credentials.RegistryCredentials
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildConfiguration-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 32,col 1): Type not found: com.google.cloud.tools.jib.builder.BuildConfiguration
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildConfigurationTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 20,col 1): Imported type not found: com.google.cloud.tools.jib.image.json.OCIManifestTemplate
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildConfigurationTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 32,col 1): Type not found: com.google.cloud.tools.jib.builder.BuildConfigurationTest
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildImageSteps-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 38,col 1): Type not found: com.google.cloud.tools.jib.builder.BuildImageSteps
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildImageStepsIntegrationTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 18,col 1): Imported type not found: com.google.cloud.tools.jib.Command
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildImageStepsIntegrationTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 20,col 1): Imported type not found: com.google.cloud.tools.jib.registry.LocalRegistry
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildImageStepsIntegrationTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 22,col 1): Imported type not found: org.junit.ClassRule
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildImageStepsIntegrationTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 30,col 1): Type not found: com.google.cloud.tools.jib.builder.BuildImageStepsIntegrationTest
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/BuildLogger-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 18,col 1): Type not found: com.google.cloud.tools.jib.builder.BuildLogger
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/EntrypointBuilder-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 24,col 1): Type not found: com.google.cloud.tools.jib.builder.EntrypointBuilder
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/EntrypointBuilderTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 27,col 1): Type not found: com.google.cloud.tools.jib.builder.EntrypointBuilderTest
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/NonBlockingFutures-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 24,col 1): Type not found: com.google.cloud.tools.jib.builder.NonBlockingFutures
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/PullAndCacheBaseImageLayerStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 37,col 1): Type not found: com.google.cloud.tools.jib.builder.PullAndCacheBaseImageLayerStep
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/PullAndCacheBaseImageLayersStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 23,col 1): Imported type not found: com.google.cloud.tools.jib.image.Layer
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/PullAndCacheBaseImageLayersStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 36,col 1): Type not found: com.google.cloud.tools.jib.builder.PullAndCacheBaseImageLayersStep
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/PullBaseImageStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 19,col 1): Imported type not found: com.google.cloud.tools.jib.blob.Blobs
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/PullBaseImageStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 22,col 1): Imported type not found: com.google.cloud.tools.jib.image.LayerCountMismatchException
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/PullBaseImageStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 24,col 1): Imported type not found: com.google.cloud.tools.jib.image.json.ContainerConfigurationTemplate
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/PullBaseImageStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 25,col 1): Imported type not found: com.google.cloud.tools.jib.image.json.JsonToImageTranslator
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/PullBaseImageStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 26,col 1): Imported type not found: com.google.cloud.tools.jib.image.json.ManifestTemplate
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/PullBaseImageStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 27,col 1): Imported type not found: com.google.cloud.tools.jib.image.json.UnknownManifestFormatException
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/PullBaseImageStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 28,col 1): Imported type not found: com.google.cloud.tools.jib.image.json.V21ManifestTemplate
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/PullBaseImageStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 30,col 1): Imported type not found: com.google.cloud.tools.jib.json.JsonTemplateMapper
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/PullBaseImageStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 43,col 1): Type not found: com.google.cloud.tools.jib.builder.PullBaseImageStep
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/PushBlobStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 32,col 1): Type not found: com.google.cloud.tools.jib.builder.PushBlobStep
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/PushImageStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 41,col 1): Type not found: com.google.cloud.tools.jib.builder.PushImageStep
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/PushLayersStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 29,col 1): Type not found: com.google.cloud.tools.jib.builder.PushLayersStep
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/RetrieveRegistryCredentialsStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 20,col 1): Imported type not found: com.google.cloud.tools.jib.registry.credentials.DockerConfigCredentialRetriever
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/RetrieveRegistryCredentialsStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 21,col 1): Imported type not found: com.google.cloud.tools.jib.registry.credentials.DockerCredentialHelperFactory
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/RetrieveRegistryCredentialsStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 22,col 1): Imported type not found: com.google.cloud.tools.jib.registry.credentials.NonexistentDockerCredentialHelperException
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/RetrieveRegistryCredentialsStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 23,col 1): Imported type not found: com.google.cloud.tools.jib.registry.credentials.NonexistentServerUrlDockerCredentialHelperException
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/RetrieveRegistryCredentialsStep-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 33,col 1): Type not found: com.google.cloud.tools.jib.builder.RetrieveRegistryCredentialsStep
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/RetrieveRegistryCredentialsStepTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 20,col 1): Imported type not found: com.google.cloud.tools.jib.registry.credentials.DockerCredentialHelper
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/RetrieveRegistryCredentialsStepTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 29,col 1): Imported type not found: org.junit.Before
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/RetrieveRegistryCredentialsStepTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 39,col 1): Type not found: com.google.cloud.tools.jib.builder.RetrieveRegistryCredentialsStepTest
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/SourceFilesConfiguration-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 25,col 1): Type not found: com.google.cloud.tools.jib.builder.SourceFilesConfiguration
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/TestBuildLogger-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 18,col 1): Imported type not found: org.slf4j.Logger
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/TestBuildLogger-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 19,col 1): Imported type not found: org.slf4j.LoggerFactory
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/TestBuildLogger-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 24,col 1): Type not found: com.google.cloud.tools.jib.builder.TestBuildLogger
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/builder/TestSourceFilesConfiguration-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 31,col 1): Type not found: com.google.cloud.tools.jib.builder.TestSourceFilesConfiguration
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/cache/Cache-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 18,col 1): Imported type not found: com.google.cloud.tools.jib.cache.json.CacheMetadataTemplate
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/cache/Cache-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 16,col 1): Package not found: com.google.cloud.tools.jib.cache
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/cache/Cache-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 34,col 1): Type not found: com.google.cloud.tools.jib.cache.Cache
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/cache/CacheDirectoryNotOwnedException-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 24,col 1): Type not found: com.google.cloud.tools.jib.cache.CacheDirectoryNotOwnedException
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/cache/CacheFiles-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 24,col 1): Type not found: com.google.cloud.tools.jib.cache.CacheFiles
+warning: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/wpi-out/com/google/cloud/tools/jib/cache/CacheFilesTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 24,col 1): Imported type not found: org.mockito.ArgumentCaptor
+100 warnings
+only showing the first 100 warnings, of 290 total; use -Xmaxwarns if you would like to see more
+An exception has occurred in the compiler (21.0.2). Please file a bug against the Java compiler via the Java bug reporting page (https://bugreport.java.com) after checking the Bug Database (https://bugs.java.com) for duplicates. Include your program, the following diagnostic, and the parameters passed to the Java compiler in your report. Thank you.
+com.sun.tools.javac.util.ClientCodeException: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:880)
+	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:133)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1436)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1393)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:976)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:319)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:178)
+	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+Caused by: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage$1.processVariable(WholeProgramInferenceJavaParserStorage.java:866)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:1414)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:189)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:1040)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:565)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:499)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:189)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:855)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:573)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:480)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.createWrappersForClass(WholeProgramInferenceJavaParserStorage.java:871)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.addClassTree(WholeProgramInferenceJavaParserStorage.java:616)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.preprocessClassTree(WholeProgramInferenceJavaParserStorage.java:587)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceImplementation.preprocessClassTree(WholeProgramInferenceImplementation.java:1154)
+	at org.checkerframework.framework.type.AnnotatedTypeFactory.setRoot(AnnotatedTypeFactory.java:915)
+	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.setRoot(GenericAnnotatedTypeFactory.java:449)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.setRoot(BaseTypeVisitor.java:387)
+	at org.checkerframework.framework.source.SourceChecker.setRoot(SourceChecker.java:685)
+	at org.checkerframework.common.basetype.BaseTypeChecker.setRoot(BaseTypeChecker.java:167)
+	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1074)
+	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:559)
+	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:552)
+	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:876)
+	... 8 more
+printing javac parameters to: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/javac.20240824_015752.args
+realpath: iteration2.diff: No such file or directory
+putting the diff for iteration 2 into 
+ending iteration 2, time taken: 9 seconds
+
+entering iteration 3
+../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:77: warning: (return) $$ 2 $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 2612, 2618 ) $$ incompatible types in return.
+        return mLabel;
+               ^
+  type of expression: @Initialized @MonotonicNonNull String
+  method return type: @Initialized @NonNull String
+../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:236: warning: (argument) $$ 4 $$ val $$ Parcel.writeString $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 7649, 7660 ) $$ incompatible argument for parameter val of Parcel.writeString.
+        dest.writeString(this.mLabel);
+                             ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:238: warning: (argument) $$ 4 $$ p $$ Parcel.writeParcelable $$ @Initialized @Nullable Bitmap $$ @Initialized @NonNull Parcelable $$ ( 7739, 7792 ) $$ incompatible argument for parameter p of Parcel.writeParcelable.
+        dest.writeParcelable(UiUtils.getBitmapFromDrawable(this.mFabImageDrawable), flags);
+                                                          ^
+  found   : @Initialized @Nullable Bitmap
+  required: @Initialized @NonNull Parcelable
+../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:253: warning: (argument) $$ 4 $$ loader $$ Parcel.readParcelable $$ @Initialized @Nullable ClassLoader $$ @Initialized @NonNull ClassLoader $$ ( 8412, 8441 ) $$ incompatible argument for parameter loader of Parcel.readParcelable.
+                UiUtils.getDrawableFromBitmap((Bitmap) in.readParcelable(Bitmap.class.getClassLoader()));
+                                                                                                    ^
+  found   : @Initialized @Nullable ClassLoader
+  required: @Initialized @NonNull ClassLoader
+4 warnings
+An exception has occurred in the compiler (21.0.2). Please file a bug against the Java compiler via the Java bug reporting page (https://bugreport.java.com) after checking the Bug Database (https://bugs.java.com) for duplicates. Include your program, the following diagnostic, and the parameters passed to the Java compiler in your report. Thank you.
+com.sun.tools.javac.util.ClientCodeException: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:880)
+	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:133)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1436)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1393)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:976)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:319)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:178)
+	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+Caused by: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage$1.processVariable(WholeProgramInferenceJavaParserStorage.java:866)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:1414)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:189)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:1040)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:565)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:499)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:189)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:855)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:573)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:480)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.createWrappersForClass(WholeProgramInferenceJavaParserStorage.java:871)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.addClassTree(WholeProgramInferenceJavaParserStorage.java:616)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.preprocessClassTree(WholeProgramInferenceJavaParserStorage.java:587)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceImplementation.preprocessClassTree(WholeProgramInferenceImplementation.java:1154)
+	at org.checkerframework.framework.type.AnnotatedTypeFactory.setRoot(AnnotatedTypeFactory.java:915)
+	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.setRoot(GenericAnnotatedTypeFactory.java:449)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.setRoot(BaseTypeVisitor.java:387)
+	at org.checkerframework.framework.source.SourceChecker.setRoot(SourceChecker.java:685)
+	at org.checkerframework.common.basetype.BaseTypeChecker.setRoot(BaseTypeChecker.java:167)
+	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1074)
+	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:559)
+	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:552)
+	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:876)
+	... 8 more
+printing javac parameters to: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/javac.20240824_015758.args
+realpath: iteration3.diff: No such file or directory
+putting the diff for iteration 3 into 
+ending iteration 3, time taken: 7 seconds
+
+entering iteration 4
+../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:236: warning: (argument) $$ 4 $$ val $$ Parcel.writeString $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 7649, 7660 ) $$ incompatible argument for parameter val of Parcel.writeString.
+        dest.writeString(this.mLabel);
+                             ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:238: warning: (argument) $$ 4 $$ p $$ Parcel.writeParcelable $$ @Initialized @Nullable Bitmap $$ @Initialized @NonNull Parcelable $$ ( 7739, 7792 ) $$ incompatible argument for parameter p of Parcel.writeParcelable.
+        dest.writeParcelable(UiUtils.getBitmapFromDrawable(this.mFabImageDrawable), flags);
+                                                          ^
+  found   : @Initialized @Nullable Bitmap
+  required: @Initialized @NonNull Parcelable
+../dataset/pre_wpi_with_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:253: warning: (argument) $$ 4 $$ loader $$ Parcel.readParcelable $$ @Initialized @Nullable ClassLoader $$ @Initialized @NonNull ClassLoader $$ ( 8412, 8441 ) $$ incompatible argument for parameter loader of Parcel.readParcelable.
+                UiUtils.getDrawableFromBitmap((Bitmap) in.readParcelable(Bitmap.class.getClassLoader()));
+                                                                                                    ^
+  found   : @Initialized @Nullable ClassLoader
+  required: @Initialized @NonNull ClassLoader
+3 warnings
+An exception has occurred in the compiler (21.0.2). Please file a bug against the Java compiler via the Java bug reporting page (https://bugreport.java.com) after checking the Bug Database (https://bugs.java.com) for duplicates. Include your program, the following diagnostic, and the parameters passed to the Java compiler in your report. Thank you.
+com.sun.tools.javac.util.ClientCodeException: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:880)
+	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:133)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1436)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1393)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:976)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:319)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:178)
+	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+Caused by: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage$1.processVariable(WholeProgramInferenceJavaParserStorage.java:866)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:1414)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:189)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:1040)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:565)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:499)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:189)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:855)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:573)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:480)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.createWrappersForClass(WholeProgramInferenceJavaParserStorage.java:871)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.addClassTree(WholeProgramInferenceJavaParserStorage.java:616)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.preprocessClassTree(WholeProgramInferenceJavaParserStorage.java:587)
+	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceImplementation.preprocessClassTree(WholeProgramInferenceImplementation.java:1154)
+	at org.checkerframework.framework.type.AnnotatedTypeFactory.setRoot(AnnotatedTypeFactory.java:915)
+	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.setRoot(GenericAnnotatedTypeFactory.java:449)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.setRoot(BaseTypeVisitor.java:387)
+	at org.checkerframework.framework.source.SourceChecker.setRoot(SourceChecker.java:685)
+	at org.checkerframework.common.basetype.BaseTypeChecker.setRoot(BaseTypeChecker.java:167)
+	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1074)
+	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:559)
+	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:552)
+	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:876)
+	... 8 more
+printing javac parameters to: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/javac.20240824_015805.args
+realpath: iteration4.diff: No such file or directory
+putting the diff for iteration 4 into 

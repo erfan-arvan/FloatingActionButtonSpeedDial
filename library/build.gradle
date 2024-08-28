@@ -15,8 +15,6 @@
  */
 
 apply plugin: 'com.android.library'
-apply from: rootProject.file('checkstyle.gradle')
-apply plugin: 'net.ltgt.errorprone'
 
 android {
     compileSdkVersion build_versions.target_sdk
@@ -43,4 +41,18 @@ dependencies {
     api deps.support.app_compat
     api deps.support.design
     api deps.support.cardview
+}
+
+
+task printCombinedClasspath {
+    doLast {
+        def combinedClasspath = files()
+
+        tasks.withType(JavaCompile).each { task ->
+            combinedClasspath += task.classpath
+        }
+
+        println "Combined classpath:"
+        println combinedClasspath.asPath
+    }
 }
