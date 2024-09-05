@@ -69,7 +69,7 @@ final class FabWithLabelView extends LinearLayout {
         init(context, attrs);
     }
 
-    public FabWithLabelView(Context context,  AttributeSet attrs, int defStyleAttr) {
+    public FabWithLabelView(Context context,  @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
@@ -202,7 +202,7 @@ final class FabWithLabelView extends LinearLayout {
      * @param context context.
      * @param attrs   attributes.
      */
-    private void init(Context context, AttributeSet attrs) {
+    private void init(Context context, @Nullable AttributeSet attrs) {
         View rootView = inflate(context, R.layout.sd_fab_with_label_view, this);
 
         mFab = rootView.findViewById(R.id.fab);
@@ -279,7 +279,7 @@ final class FabWithLabelView extends LinearLayout {
      *
      * @param mDrawable drawable to set.
      */
-    private void setFabIcon(Drawable mDrawable) {
+    private void setFabIcon(@Nullable Drawable mDrawable) {
         mFab.setImageDrawable(mDrawable);
     }
 
@@ -288,7 +288,7 @@ final class FabWithLabelView extends LinearLayout {
      *
      * @param sequence label to set.
      */
-    private void setLabel(CharSequence sequence) {
+    private void setLabel(@Nullable CharSequence sequence) {
         if (!TextUtils.isEmpty(sequence)) {
             mLabelTextView.setText(sequence);
             setLabelEnable(getOrientation() == HORIZONTAL);

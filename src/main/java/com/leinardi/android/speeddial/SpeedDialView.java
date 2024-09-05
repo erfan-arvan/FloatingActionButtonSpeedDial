@@ -67,17 +67,17 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
     private List<FabWithLabelView> mFabWithLabelViews = new ArrayList<>();
     private FloatingActionButton mMainFab;
     private boolean mIsOpen = false;
-    private Drawable mMainFabOpenDrawable = null;
-    private Drawable mMainFabCloseDrawable = null;
+    @Nullable private Drawable mMainFabOpenDrawable = null;
+    @Nullable private Drawable mMainFabCloseDrawable = null;
     
-    private SpeedDialOverlayLayout mOverlayLayout;
+    @Nullable private SpeedDialOverlayLayout mOverlayLayout;
     @ExpansionMode
     private int mExpansionMode = TOP;
     private boolean mRotateOnToggle = true;
     
-    private OnChangeListener mOnChangeListener;
+    @Nullable private OnChangeListener mOnChangeListener;
     
-    private OnActionSelectedListener mOnActionSelectedListener;
+    @Nullable private OnActionSelectedListener mOnActionSelectedListener;
     private OnActionSelectedListener mOnActionSelectedProxyListener = new OnActionSelectedListener() {
         @Override
         public boolean onActionSelected(SpeedDialActionItem actionItem) {
@@ -143,7 +143,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         show(null);
     }
 
-    public void show( final OnVisibilityChangedListener listener) {
+    public void show( @Nullable final OnVisibilityChangedListener listener) {
         mMainFab.show(listener);
     }
 
@@ -151,7 +151,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         hide(null);
     }
 
-    public void hide( OnVisibilityChangedListener listener) {
+    public void hide( @Nullable OnVisibilityChangedListener listener) {
         if (isOpen()) {
             close();
             // Workaround for mMainFab.hide() breaking the rotate anim
@@ -161,7 +161,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
     }
 
     
-    public SpeedDialOverlayLayout getOverlayLayout() {
+    @Nullable public SpeedDialOverlayLayout getOverlayLayout() {
         return mOverlayLayout;
     }
 
@@ -279,7 +279,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
      * @return the {@link SpeedDialActionItem} that was removed from the list, or null otherwise
      */
     
-    public SpeedDialActionItem removeActionItemById(@IdRes int idRes) {
+    @Nullable public SpeedDialActionItem removeActionItemById(@IdRes int idRes) {
         return removeActionItem(findFabWithLabelViewById(idRes));
     }
 
@@ -435,8 +435,8 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
     }
 
     
-    private SpeedDialActionItem removeActionItem(FabWithLabelView view,
-                                                  Iterator<FabWithLabelView> it,
+    @Nullable private SpeedDialActionItem removeActionItem(@Nullable FabWithLabelView view,
+                                                  @Nullable Iterator<FabWithLabelView> it,
                                                  boolean animate) {
         if (view != null) {
             SpeedDialActionItem speedDialActionItem = view.getSpeedDialActionItem();
@@ -464,11 +464,11 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         }
     }
 
-    private SpeedDialActionItem removeActionItem(FabWithLabelView view) {
+    @Nullable private SpeedDialActionItem removeActionItem(@Nullable FabWithLabelView view) {
         return removeActionItem(view, null, true);
     }
 
-    private void init(Context context, AttributeSet attrs) {
+    private void init(Context context, @Nullable AttributeSet attrs) {
         mMainFab = createMainFab();
         addView(mMainFab);
         setClipChildren(false);
@@ -589,7 +589,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
     }
 
     
-    private FabWithLabelView findFabWithLabelViewById(@IdRes int id) {
+    @Nullable private FabWithLabelView findFabWithLabelViewById(@IdRes int id) {
         for (FabWithLabelView fabWithLabelView : mFabWithLabelViews) {
             if (fabWithLabelView.getId() == id) {
                 return fabWithLabelView;
@@ -690,8 +690,8 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
     public static class SnackbarBehavior extends CoordinatorLayout.Behavior<View> {
         private static final boolean AUTO_HIDE_DEFAULT = true;
 
-        private Rect mTmpRect;
-        private OnVisibilityChangedListener mInternalAutoHideListener;
+        @Nullable private Rect mTmpRect;
+        @Nullable private OnVisibilityChangedListener mInternalAutoHideListener;
         private boolean mAutoHideEnabled;
 
         public SnackbarBehavior() {

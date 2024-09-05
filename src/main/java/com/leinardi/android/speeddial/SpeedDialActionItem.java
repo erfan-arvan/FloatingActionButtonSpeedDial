@@ -36,11 +36,11 @@ public class SpeedDialActionItem implements Parcelable {
     public static final int NOT_SET = Integer.MIN_VALUE;
     @IdRes
     private final int mId;
-    private final String mLabel;
+    @Nullable private final String mLabel;
     @DrawableRes
     private final int mFabImageResource;
     
-    private final Drawable mFabImageDrawable;
+    @Nullable private final Drawable mFabImageDrawable;
     @ColorInt
     private final int mFabImageTintColor;
     @ColorInt
@@ -73,7 +73,7 @@ public class SpeedDialActionItem implements Parcelable {
         return mId;
     }
 
-    public String getLabel() {
+    @Nullable public String getLabel() {
         return mLabel;
     }
 
@@ -84,7 +84,7 @@ public class SpeedDialActionItem implements Parcelable {
      * @return the speed dial item drawable, or null if no drawable has been assigned.
      */
     
-    public Drawable getFabImageDrawable(Context context) {
+    @Nullable public Drawable getFabImageDrawable(Context context) {
         if (mFabImageDrawable != null) {
             return mFabImageDrawable;
         } else if (mFabImageResource != NOT_SET) {
@@ -134,10 +134,10 @@ public class SpeedDialActionItem implements Parcelable {
         @DrawableRes
         private final int mFabImageResource;
         
-        private Drawable mFabImageDrawable;
+        @Nullable private Drawable mFabImageDrawable;
         @ColorInt
         private int mFabImageTintColor = NOT_SET;
-        private String mLabel;
+        @Nullable private String mLabel;
         @ColorInt
         private int mFabBackgroundColor = NOT_SET;
         @ColorInt
