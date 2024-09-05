@@ -34,7 +34,7 @@ public class SpeedDialOverlayLayout extends RelativeLayout {
     private boolean mClickableOverlay;
     private int mAnimationDuration;
     
-    private OnClickListener mClickListener;
+    @Nullable private OnClickListener mClickListener;
 
     public SpeedDialOverlayLayout( Context context) {
         super(context);
@@ -106,7 +106,7 @@ public class SpeedDialOverlayLayout extends RelativeLayout {
     }
 
     @Override
-    public void setOnClickListener( OnClickListener clickListener) {
+    public void setOnClickListener( @Nullable OnClickListener clickListener) {
         mClickListener = clickListener;
         super.setOnClickListener(hasClickableOverlay() ? clickListener : null);
     }
