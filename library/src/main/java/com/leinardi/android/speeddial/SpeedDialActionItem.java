@@ -1,14 +1,14 @@
 package com.leinardi.android.speeddial;
-@SuppressWarnings({"unused", "WeakerAccess"})
+
 public class SpeedDialActionItem implements Parcelable {
     public static final int NOT_SET = Integer.MIN_VALUE;
     @IdRes
     private final int mId;
-    @Nullable
+    
     private final String mLabel;
     @DrawableRes
     private final int mFabImageResource;
-    @Nullable
+    
     private final Drawable mFabImageDrawable;
     @ColorInt
     private final int mFabImageTintColor;
@@ -39,11 +39,11 @@ public class SpeedDialActionItem implements Parcelable {
     public int getId() {
         return mId;
     }
-    @Nullable
+    
     public String getLabel() {
         return mLabel;
     }
-    @Nullable
+    
     public Drawable getFabImageDrawable(Context context) {
         if (mFabImageDrawable != null) {
             return mFabImageDrawable;
@@ -84,11 +84,11 @@ public class SpeedDialActionItem implements Parcelable {
         private final int mId;
         @DrawableRes
         private final int mFabImageResource;
-        @Nullable
+        
         private Drawable mFabImageDrawable;
         @ColorInt
         private int mFabImageTintColor = NOT_SET;
-        @Nullable
+        
         private String mLabel;
         @ColorInt
         private int mFabBackgroundColor = NOT_SET;
@@ -106,12 +106,12 @@ public class SpeedDialActionItem implements Parcelable {
             mFabImageResource = fabImageResource;
             mFabImageDrawable = null;
         }
-        public Builder(@IdRes int id, @Nullable Drawable drawable) {
+        public Builder(@IdRes int id,  Drawable drawable) {
             mId = id;
             mFabImageDrawable = drawable;
             mFabImageResource = NOT_SET;
         }
-        public Builder setLabel(@Nullable String label) {
+        public Builder setLabel( String label) {
             mLabel = label;
             return this;
         }

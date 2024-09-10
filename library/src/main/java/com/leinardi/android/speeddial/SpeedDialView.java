@@ -1,22 +1,22 @@
 package com.leinardi.android.speeddial;
-@SuppressWarnings({"unused", "WeakerAccess"})
+
 public class SpeedDialView extends LinearLayout implements CoordinatorLayout.AttachedBehavior {
     private static final String TAG = SpeedDialView.class.getSimpleName();
     private List<FabWithLabelView> mFabWithLabelViews = new ArrayList<>();
     private FloatingActionButton mMainFab;
     private boolean mIsOpen = false;
-    @Nullable
+    
     private Drawable mMainFabOpenDrawable = null;
-    @Nullable
+    
     private Drawable mMainFabCloseDrawable = null;
-    @Nullable
+    
     private SpeedDialOverlayLayout mOverlayLayout;
     @ExpansionMode
     private int mExpansionMode = TOP;
     private boolean mRotateOnToggle = true;
-    @Nullable
+    
     private OnChangeListener mOnChangeListener;
-    @Nullable
+    
     private OnActionSelectedListener mOnActionSelectedListener;
     private OnActionSelectedListener mOnActionSelectedProxyListener = new OnActionSelectedListener() {
         @Override
@@ -40,7 +40,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         super(context, attrs);
         init(context, attrs);
     }
-    public SpeedDialView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public SpeedDialView(Context context,  AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
@@ -74,24 +74,24 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
     public void show() {
         show(null);
     }
-    public void show(@Nullable final OnVisibilityChangedListener listener) {
+    public void show( final OnVisibilityChangedListener listener) {
         mMainFab.show(listener);
     }
     public void hide() {
         hide(null);
     }
-    public void hide(@Nullable OnVisibilityChangedListener listener) {
+    public void hide( OnVisibilityChangedListener listener) {
         if (isOpen()) {
             close();
             ViewCompat.animate(mMainFab).rotation(0).setDuration(0).start();
         }
         mMainFab.hide(listener);
     }
-    @Nullable
+    
     public SpeedDialOverlayLayout getOverlayLayout() {
         return mOverlayLayout;
     }
-    public void setOverlayLayout(@Nullable SpeedDialOverlayLayout overlayLayout) {
+    public void setOverlayLayout( SpeedDialOverlayLayout overlayLayout) {
         if (overlayLayout != null) {
             overlayLayout.setOnClickListener(new OnClickListener() {
                 @Override
@@ -133,16 +133,16 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             }
         }
     }
-    @Nullable
+    
     public SpeedDialActionItem removeActionItem(int position) {
         SpeedDialActionItem speedDialActionItem = mFabWithLabelViews.get(position).getSpeedDialActionItem();
         removeActionItem(speedDialActionItem);
         return speedDialActionItem;
     }
-    public boolean removeActionItem(@Nullable SpeedDialActionItem actionItem) {
+    public boolean removeActionItem( SpeedDialActionItem actionItem) {
         return actionItem != null && removeActionItemById(actionItem.getId()) != null;
     }
-    @Nullable
+    
     public SpeedDialActionItem removeActionItemById(@IdRes int idRes) {
         return removeActionItem(findFabWithLabelViewById(idRes));
     }
@@ -150,7 +150,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         return replaceActionItem(mFabWithLabelViews.get(position).getSpeedDialActionItem(),
                 newActionItem);
     }
-    public boolean replaceActionItem(@Nullable SpeedDialActionItem oldSpeedDialActionItem,
+    public boolean replaceActionItem( SpeedDialActionItem oldSpeedDialActionItem,
                                      SpeedDialActionItem newSpeedDialActionItem) {
         if (oldSpeedDialActionItem == null) {
             return false;
@@ -177,19 +177,19 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             removeActionItem(fabWithLabelView, it, true);
         }
     }
-    @NonNull
+    
     @Override
     public CoordinatorLayout.Behavior getBehavior() {
         return new SnackbarBehavior();
     }
-    public void setOnActionSelectedListener(@Nullable OnActionSelectedListener listener) {
+    public void setOnActionSelectedListener( OnActionSelectedListener listener) {
         mOnActionSelectedListener = listener;
         for (int index = 0; index < mFabWithLabelViews.size(); index++) {
             final FabWithLabelView fabWithLabelView = mFabWithLabelViews.get(index);
             fabWithLabelView.setOnActionSelectedListener(mOnActionSelectedProxyListener);
         }
     }
-    public void setOnChangeListener(@Nullable final OnChangeListener onChangeListener) {
+    public void setOnChangeListener( final OnChangeListener onChangeListener) {
         mOnChangeListener = onChangeListener;
     }
     public void open() {
@@ -210,7 +210,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
     public void setRotateOnToggle(boolean rotateOnToggle) {
         mRotateOnToggle = rotateOnToggle;
     }
-    @Nullable
+    
     @Override
     protected Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
@@ -244,9 +244,9 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             return position + 1;
         }
     }
-    @Nullable
-    private SpeedDialActionItem removeActionItem(@Nullable FabWithLabelView view,
-                                                 @Nullable Iterator<FabWithLabelView> it,
+    
+    private SpeedDialActionItem removeActionItem( FabWithLabelView view,
+                                                  Iterator<FabWithLabelView> it,
                                                  boolean animate) {
         if (view != null) {
             SpeedDialActionItem speedDialActionItem = view.getSpeedDialActionItem();
@@ -272,11 +272,11 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             return null;
         }
     }
-    @Nullable
-    private SpeedDialActionItem removeActionItem(@Nullable FabWithLabelView view) {
+    
+    private SpeedDialActionItem removeActionItem( FabWithLabelView view) {
         return removeActionItem(view, null, true);
     }
-    private void init(Context context, @Nullable AttributeSet attrs) {
+    private void init(Context context,  AttributeSet attrs) {
         mMainFab = createMainFab();
         addView(mMainFab);
         setClipChildren(false);
@@ -387,7 +387,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             }
         }
     }
-    @Nullable
+    
     private FabWithLabelView findFabWithLabelViewById(@IdRes int id) {
         for (FabWithLabelView fabWithLabelView : mFabWithLabelViews) {
             if (fabWithLabelView.getId() == id) {
@@ -444,12 +444,12 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         int LEFT = 2;
         int RIGHT = 3;
     }
-    @SuppressWarnings({"unused", "WeakerAccess"})
+    
     public static class SnackbarBehavior extends CoordinatorLayout.Behavior<View> {
         private static final boolean AUTO_HIDE_DEFAULT = true;
-        @Nullable
+        
         private Rect mTmpRect;
-        @Nullable
+        
         private OnVisibilityChangedListener mInternalAutoHideListener;
         private boolean mAutoHideEnabled;
         public SnackbarBehavior() {
@@ -465,7 +465,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
                     AUTO_HIDE_DEFAULT);
             a.recycle();
         }
-        private static boolean isBottomSheet(@NonNull View view) {
+        private static boolean isBottomSheet( View view) {
             final ViewGroup.LayoutParams lp = view.getLayoutParams();
             if (lp instanceof CoordinatorLayout.LayoutParams) {
                 return ((CoordinatorLayout.LayoutParams) lp)
@@ -480,7 +480,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             mAutoHideEnabled = autoHide;
         }
         @Override
-        public void onAttachedToLayoutParams(@NonNull CoordinatorLayout.LayoutParams lp) {
+        public void onAttachedToLayoutParams( CoordinatorLayout.LayoutParams lp) {
             if (lp.dodgeInsetEdges == Gravity.NO_GRAVITY) {
                 lp.dodgeInsetEdges = Gravity.BOTTOM;
             }
@@ -592,7 +592,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             return true;
         }
     }
-    @SuppressWarnings({"unused", "WeakerAccess"})
+    
     public static class ScrollingViewSnackbarBehavior extends SnackbarBehavior {
         public ScrollingViewSnackbarBehavior() {
         }
@@ -600,8 +600,8 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             super(context, attrs);
         }
         @Override
-        public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View child, @NonNull
-                View directTargetChild, @NonNull View target, int axes, int type) {
+        public boolean onStartNestedScroll( CoordinatorLayout coordinatorLayout,  View child, 
+                View directTargetChild,  View target, int axes, int type) {
             return true;
         }
         @Override
@@ -609,7 +609,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             return dependency instanceof RecyclerView || super.layoutDependsOn(parent, child, dependency);
         }
         @Override
-        public void onNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View child, @NonNull View
+        public void onNestedScroll( CoordinatorLayout coordinatorLayout,  View child,  View
                 target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type) {
             super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed,
                     type);
