@@ -111,8 +111,8 @@ public class UiUtils {
             }
         };
     }
-    @Nullable
-    public static Bitmap getBitmapFromDrawable(@Nullable Drawable drawable) {
+    
+    public static Bitmap getBitmapFromDrawable( Drawable drawable) {
         if (drawable == null) {
             return null;
         } else {
@@ -135,8 +135,8 @@ public class UiUtils {
             return bitmap;
         }
     }
-    @Nullable
-    public static Drawable getDrawableFromBitmap(@Nullable Bitmap bitmap) {
+    
+    public static Drawable getDrawableFromBitmap( Bitmap bitmap) {
         if (bitmap == null) {
             return null;
         } else {

@@ -1,19 +1,19 @@
 package com.leinardi.android.speeddial;
-@SuppressWarnings({"unused", "WeakerAccess"})
+
 public class SpeedDialOverlayLayout extends RelativeLayout {
     private static final String TAG = SpeedDialOverlayLayout.class.getSimpleName();
     private boolean mClickableOverlay;
     private int mAnimationDuration;
-    @Nullable
+    
     private OnClickListener mClickListener;
-    public SpeedDialOverlayLayout(@NonNull Context context) {
+    public SpeedDialOverlayLayout( Context context) {
         super(context);
     }
-    public SpeedDialOverlayLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public SpeedDialOverlayLayout( Context context,  AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
-    public SpeedDialOverlayLayout(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int
+    public SpeedDialOverlayLayout( Context context,  AttributeSet attrs, @AttrRes int
             defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
@@ -59,7 +59,7 @@ public class SpeedDialOverlayLayout extends RelativeLayout {
         }
     }
     @Override
-    public void setOnClickListener(@Nullable OnClickListener clickListener) {
+    public void setOnClickListener( OnClickListener clickListener) {
         mClickListener = clickListener;
         super.setOnClickListener(hasClickableOverlay() ? clickListener : null);
     }

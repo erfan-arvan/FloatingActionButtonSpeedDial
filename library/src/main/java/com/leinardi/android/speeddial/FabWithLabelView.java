@@ -1,5 +1,5 @@
 package com.leinardi.android.speeddial;
-@SuppressWarnings({"unused", "WeakerAccess"})
+
 final class FabWithLabelView extends LinearLayout {
     private static final String TAG = FabWithLabelView.class.getSimpleName();
     private TextView mLabelTextView;
@@ -18,7 +18,7 @@ final class FabWithLabelView extends LinearLayout {
         super(context, attrs);
         init(context, attrs);
     }
-    public FabWithLabelView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public FabWithLabelView(Context context,  AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
