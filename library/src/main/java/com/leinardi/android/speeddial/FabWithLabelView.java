@@ -1,14 +1,11 @@
 package com.leinardi.android.speeddial;
-
 final class FabWithLabelView extends LinearLayout {
     private static final String TAG = FabWithLabelView.class.getSimpleName();
     private TextView mLabelTextView;
     private FloatingActionButton mFab;
     private CardView mLabelCardView;
     private boolean mIsLabelEnable;
-    
     private SpeedDialActionItem mSpeedDialActionItem;
-    
     private OnActionSelectedListener mOnActionSelectedListener;
     @FloatingActionButton.Size
     private int mCurrentFabSize;
@@ -55,7 +52,6 @@ final class FabWithLabelView extends LinearLayout {
     public FloatingActionButton getFab() {
         return mFab;
     }
-    
     public SpeedDialActionItem getSpeedDialActionItem() {
         return mSpeedDialActionItem;
     }

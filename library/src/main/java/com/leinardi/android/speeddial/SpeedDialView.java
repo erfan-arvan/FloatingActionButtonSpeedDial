@@ -1,22 +1,16 @@
 package com.leinardi.android.speeddial;
-
 public class SpeedDialView extends LinearLayout implements CoordinatorLayout.AttachedBehavior {
     private static final String TAG = SpeedDialView.class.getSimpleName();
     private List<FabWithLabelView> mFabWithLabelViews = new ArrayList<>();
     private FloatingActionButton mMainFab;
     private boolean mIsOpen = false;
-    
     private Drawable mMainFabOpenDrawable = null;
-    
     private Drawable mMainFabCloseDrawable = null;
-    
     private SpeedDialOverlayLayout mOverlayLayout;
     @ExpansionMode
     private int mExpansionMode = TOP;
     private boolean mRotateOnToggle = true;
-    
     private OnChangeListener mOnChangeListener;
-    
     private OnActionSelectedListener mOnActionSelectedListener;
     private OnActionSelectedListener mOnActionSelectedProxyListener = new OnActionSelectedListener() {
         @Override
@@ -87,7 +81,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         }
         mMainFab.hide(listener);
     }
-    
     public SpeedDialOverlayLayout getOverlayLayout() {
         return mOverlayLayout;
     }
@@ -133,7 +126,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             }
         }
     }
-    
     public SpeedDialActionItem removeActionItem(int position) {
         SpeedDialActionItem speedDialActionItem = mFabWithLabelViews.get(position).getSpeedDialActionItem();
         removeActionItem(speedDialActionItem);
@@ -142,7 +134,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
     public boolean removeActionItem( SpeedDialActionItem actionItem) {
         return actionItem != null && removeActionItemById(actionItem.getId()) != null;
     }
-    
     public SpeedDialActionItem removeActionItemById(@IdRes int idRes) {
         return removeActionItem(findFabWithLabelViewById(idRes));
     }
@@ -177,7 +168,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             removeActionItem(fabWithLabelView, it, true);
         }
     }
-    
     @Override
     public CoordinatorLayout.Behavior getBehavior() {
         return new SnackbarBehavior();
@@ -210,7 +200,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
     public void setRotateOnToggle(boolean rotateOnToggle) {
         mRotateOnToggle = rotateOnToggle;
     }
-    
     @Override
     protected Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
@@ -244,7 +233,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             return position + 1;
         }
     }
-    
     private SpeedDialActionItem removeActionItem( FabWithLabelView view,
                                                   Iterator<FabWithLabelView> it,
                                                  boolean animate) {
@@ -272,7 +260,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             return null;
         }
     }
-    
     private SpeedDialActionItem removeActionItem( FabWithLabelView view) {
         return removeActionItem(view, null, true);
     }
@@ -387,7 +374,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             }
         }
     }
-    
     private FabWithLabelView findFabWithLabelViewById(@IdRes int id) {
         for (FabWithLabelView fabWithLabelView : mFabWithLabelViews) {
             if (fabWithLabelView.getId() == id) {
@@ -444,12 +430,9 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         int LEFT = 2;
         int RIGHT = 3;
     }
-    
     public static class SnackbarBehavior extends CoordinatorLayout.Behavior<View> {
         private static final boolean AUTO_HIDE_DEFAULT = true;
-        
         private Rect mTmpRect;
-        
         private OnVisibilityChangedListener mInternalAutoHideListener;
         private boolean mAutoHideEnabled;
         public SnackbarBehavior() {
@@ -592,7 +575,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             return true;
         }
     }
-    
     public static class ScrollingViewSnackbarBehavior extends SnackbarBehavior {
         public ScrollingViewSnackbarBehavior() {
         }
