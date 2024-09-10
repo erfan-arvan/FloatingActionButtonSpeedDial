@@ -1,10 +1,8 @@
 package com.leinardi.android.speeddial;
-
 public class SpeedDialOverlayLayout extends RelativeLayout {
     private static final String TAG = SpeedDialOverlayLayout.class.getSimpleName();
     private boolean mClickableOverlay;
     private int mAnimationDuration;
-    
     private OnClickListener mClickListener;
     public SpeedDialOverlayLayout( Context context) {
         super(context);

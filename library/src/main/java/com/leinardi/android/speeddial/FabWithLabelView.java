@@ -1,5 +1,4 @@
 package com.leinardi.android.speeddial;
-
 final class FabWithLabelView extends LinearLayout {
     private static final String TAG = FabWithLabelView.class.getSimpleName();
     private TextView mLabelTextView;

@@ -1,5 +1,4 @@
 package com.leinardi.android.speeddial;
-
 public class SpeedDialActionItem implements Parcelable {
     public static final int NOT_SET = Integer.MIN_VALUE;
     @IdRes
@@ -7,7 +6,6 @@ public class SpeedDialActionItem implements Parcelable {
     private final String mLabel;
     @DrawableRes
     private final int mFabImageResource;
-    
     private final Drawable mFabImageDrawable;
     @ColorInt
     private final int mFabImageTintColor;
@@ -41,7 +39,6 @@ public class SpeedDialActionItem implements Parcelable {
     public String getLabel() {
         return mLabel;
     }
-    
     public Drawable getFabImageDrawable(Context context) {
         if (mFabImageDrawable != null) {
             return mFabImageDrawable;
@@ -82,7 +79,6 @@ public class SpeedDialActionItem implements Parcelable {
         private final int mId;
         @DrawableRes
         private final int mFabImageResource;
-        
         private Drawable mFabImageDrawable;
         @ColorInt
         private int mFabImageTintColor = NOT_SET;
