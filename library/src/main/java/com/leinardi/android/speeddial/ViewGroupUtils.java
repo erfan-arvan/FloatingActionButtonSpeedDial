@@ -15,10 +15,7 @@
  */
 
 package com.leinardi.android.speeddial;
-
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
+import javax.annotation.Nullable;import android.graphics.RectF;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;

@@ -15,16 +15,12 @@
  */
 
 package com.leinardi.android.speeddial;
-
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
+import javax.annotation.Nullable;import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
-import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;

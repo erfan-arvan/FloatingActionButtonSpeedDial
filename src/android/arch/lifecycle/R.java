@@ -5,6 +5,6 @@
  * should not be modified by hand.
  */
 package android.arch.lifecycle;
-
+import javax.annotation.Nullable;
 public final class R {
 }

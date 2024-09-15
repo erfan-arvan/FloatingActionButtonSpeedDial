@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.leinardi.android.speeddial;
-
+import javax.annotation.Nullable;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.RectF;
@@ -24,7 +23,9 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 
 class ViewGroupUtils {
+
     private static final ThreadLocal<Matrix> MATRIX_THREAD_LOCAL = new ThreadLocal<>();
+
     private static final ThreadLocal<RectF> RECT_F = new ThreadLocal<>();
 
     private ViewGroupUtils() {
@@ -47,9 +48,7 @@ class ViewGroupUtils {
         } else {
             m.reset();
         }
-
         offsetDescendantMatrix(parent, descendant, m);
-
         RectF rectF = RECT_F.get();
         if (rectF == null) {
             rectF = new RectF();
@@ -57,8 +56,7 @@ class ViewGroupUtils {
         }
         rectF.set(rect);
         m.mapRect(rectF);
-        rect.set((int) (rectF.left + 0.5f), (int) (rectF.top + 0.5f),
-                (int) (rectF.right + 0.5f), (int) (rectF.bottom + 0.5f));
+        rect.set((int) (rectF.left + 0.5f), (int) (rectF.top + 0.5f), (int) (rectF.right + 0.5f), (int) (rectF.bottom + 0.5f));
     }
 
     /**
@@ -80,9 +78,7 @@ class ViewGroupUtils {
             offsetDescendantMatrix(target, vp, m);
             m.preTranslate(-vp.getScrollX(), -vp.getScrollY());
         }
-
         m.preTranslate(view.getLeft(), view.getTop());
-
         if (!view.getMatrix().isIdentity()) {
             m.preConcat(view.getMatrix());
         }

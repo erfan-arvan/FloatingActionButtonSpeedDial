@@ -15,10 +15,7 @@
  */
 
 package com.leinardi.android.speeddial;
-
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.graphics.Rect;
+import javax.annotation.Nullable;import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,7 +24,6 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomSheetBehavior;

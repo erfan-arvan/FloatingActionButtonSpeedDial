@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.leinardi.android.speeddial;
-
+import javax.annotation.Nullable;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
@@ -27,7 +26,6 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomSheetBehavior;
@@ -47,13 +45,11 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
-
 import java.lang.annotation.Retention;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-
 import static com.leinardi.android.speeddial.SpeedDialActionItem.NOT_SET;
 import static com.leinardi.android.speeddial.SpeedDialView.ExpansionMode.BOTTOM;
 import static com.leinardi.android.speeddial.SpeedDialView.ExpansionMode.LEFT;
@@ -61,26 +57,38 @@ import static com.leinardi.android.speeddial.SpeedDialView.ExpansionMode.RIGHT;
 import static com.leinardi.android.speeddial.SpeedDialView.ExpansionMode.TOP;
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
-
 public class SpeedDialView extends LinearLayout implements CoordinatorLayout.AttachedBehavior {
+
     private static final String TAG = SpeedDialView.class.getSimpleName();
+
     private List<FabWithLabelView> mFabWithLabelViews = new ArrayList<>();
+
     private FloatingActionButton mMainFab;
+
     private boolean mIsOpen = false;
-    
+
+    @Nullable
     private Drawable mMainFabOpenDrawable = null;
-    
+
+    @Nullable
     private Drawable mMainFabCloseDrawable = null;
-    
+
+    @Nullable
     private SpeedDialOverlayLayout mOverlayLayout;
+
     @ExpansionMode
     private int mExpansionMode = TOP;
+
     private boolean mRotateOnToggle = true;
-    
+
+    @Nullable
     private OnChangeListener mOnChangeListener;
-    
+
+    @Nullable
     private OnActionSelectedListener mOnActionSelectedListener;
+
     private OnActionSelectedListener mOnActionSelectedProxyListener = new OnActionSelectedListener() {
+
         @Override
         public boolean onActionSelected(SpeedDialActionItem actionItem) {
             if (mOnActionSelectedListener != null) {
@@ -105,7 +113,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         init(context, attrs);
     }
 
-    public SpeedDialView(Context context,  AttributeSet attrs, int defStyleAttr) {
+    public SpeedDialView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
@@ -117,7 +125,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
 
     public void setExpansionMode(@ExpansionMode int expansionMode) {
         mExpansionMode = expansionMode;
-        switch (expansionMode) {
+        switch(expansionMode) {
             case TOP:
             case BOTTOM:
                 setOrientation(VERTICAL);
@@ -133,7 +141,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
                 }
                 break;
         }
-
     }
 
     @Override
@@ -145,7 +152,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         show(null);
     }
 
-    public void show( final OnVisibilityChangedListener listener) {
+    public void show(final OnVisibilityChangedListener listener) {
         mMainFab.show(listener);
     }
 
@@ -153,7 +160,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         hide(null);
     }
 
-    public void hide( OnVisibilityChangedListener listener) {
+    public void hide(OnVisibilityChangedListener listener) {
         if (isOpen()) {
             close();
             // Workaround for mMainFab.hide() breaking the rotate anim
@@ -162,7 +169,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         mMainFab.hide(listener);
     }
 
-    
     public SpeedDialOverlayLayout getOverlayLayout() {
         return mOverlayLayout;
     }
@@ -172,9 +178,10 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
      *
      * @param overlayLayout The view to add.
      */
-    public void setOverlayLayout( SpeedDialOverlayLayout overlayLayout) {
+    public void setOverlayLayout(SpeedDialOverlayLayout overlayLayout) {
         if (overlayLayout != null) {
             overlayLayout.setOnClickListener(new OnClickListener() {
+
                 @Override
                 public void onClick(View view) {
                     close();
@@ -253,7 +260,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
      * @param position the index of the {@link SpeedDialActionItem} to be removed
      * @return the {@link SpeedDialActionItem} that was removed from the list
      */
-    
     public SpeedDialActionItem removeActionItem(int position) {
         SpeedDialActionItem speedDialActionItem = mFabWithLabelViews.get(position).getSpeedDialActionItem();
         removeActionItem(speedDialActionItem);
@@ -270,7 +276,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
      * @param actionItem {@link SpeedDialActionItem} to be removed from this list, if present
      * @return true if this list contained the specified element
      */
-    public boolean removeActionItem( SpeedDialActionItem actionItem) {
+    public boolean removeActionItem(SpeedDialActionItem actionItem) {
         return actionItem != null && removeActionItemById(actionItem.getId()) != null;
     }
 
@@ -281,7 +287,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
      * @param idRes the ID to search for
      * @return the {@link SpeedDialActionItem} that was removed from the list, or null otherwise
      */
-    
     public SpeedDialActionItem removeActionItemById(@IdRes int idRes) {
         return removeActionItem(findFabWithLabelViewById(idRes));
     }
@@ -295,8 +300,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
      * @return true if this list contained the specified element
      */
     public boolean replaceActionItem(SpeedDialActionItem newActionItem, int position) {
-        return replaceActionItem(mFabWithLabelViews.get(position).getSpeedDialActionItem(),
-                newActionItem);
+        return replaceActionItem(mFabWithLabelViews.get(position).getSpeedDialActionItem(), newActionItem);
     }
 
     /**
@@ -306,8 +310,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
      * @param newSpeedDialActionItem the new {@link SpeedDialActionItem} to add
      * @return true if this list contained the specified element
      */
-    public boolean replaceActionItem( SpeedDialActionItem oldSpeedDialActionItem,
-                                     SpeedDialActionItem newSpeedDialActionItem) {
+    public boolean replaceActionItem(SpeedDialActionItem oldSpeedDialActionItem, SpeedDialActionItem newSpeedDialActionItem) {
         if (oldSpeedDialActionItem == null) {
             return false;
         } else {
@@ -338,7 +341,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         }
     }
 
-    
     @Override
     public CoordinatorLayout.Behavior getBehavior() {
         return new SnackbarBehavior();
@@ -349,9 +351,8 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
      *
      * @param listener listener to set.
      */
-    public void setOnActionSelectedListener( OnActionSelectedListener listener) {
+    public void setOnActionSelectedListener(OnActionSelectedListener listener) {
         mOnActionSelectedListener = listener;
-
         for (int index = 0; index < mFabWithLabelViews.size(); index++) {
             final FabWithLabelView fabWithLabelView = mFabWithLabelViews.get(index);
             fabWithLabelView.setOnActionSelectedListener(mOnActionSelectedProxyListener);
@@ -363,7 +364,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
      *
      * @param onChangeListener listener to set.
      */
-    public void setOnChangeListener( final OnChangeListener onChangeListener) {
+    public void setOnChangeListener(final OnChangeListener onChangeListener) {
         mOnChangeListener = onChangeListener;
     }
 
@@ -403,7 +404,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         mRotateOnToggle = rotateOnToggle;
     }
 
-    
     @Override
     protected Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
@@ -419,10 +419,10 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
 
     @Override
     protected void onRestoreInstanceState(Parcelable state) {
-        if (state instanceof Bundle) { // implicit null check
+        if (state instanceof Bundle) {
+            // implicit null check
             Bundle bundle = (Bundle) state;
-            ArrayList<SpeedDialActionItem> speedDialActionItems = bundle.getParcelableArrayList(SpeedDialActionItem
-                    .class.getName());
+            ArrayList<SpeedDialActionItem> speedDialActionItems = bundle.getParcelableArrayList(SpeedDialActionItem.class.getName());
             if (speedDialActionItems != null && !speedDialActionItems.isEmpty()) {
                 //                Collections.reverse(speedDialActionItems);
                 addAllActionItems(speedDialActionItems);
@@ -441,10 +441,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         }
     }
 
-    
-    private SpeedDialActionItem removeActionItem( FabWithLabelView view,
-                                                  Iterator<FabWithLabelView> it,
-                                                 boolean animate) {
+    private SpeedDialActionItem removeActionItem(FabWithLabelView view, Iterator<FabWithLabelView> it, boolean animate) {
         if (view != null) {
             SpeedDialActionItem speedDialActionItem = view.getSpeedDialActionItem();
             if (it != null) {
@@ -452,7 +449,6 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             } else {
                 mFabWithLabelViews.remove(view);
             }
-
             if (isOpen()) {
                 if (mFabWithLabelViews.isEmpty()) {
                     close();
@@ -471,12 +467,11 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         }
     }
 
-    
-    private SpeedDialActionItem removeActionItem( FabWithLabelView view) {
+    private SpeedDialActionItem removeActionItem(FabWithLabelView view) {
         return removeActionItem(view, null, true);
     }
 
-    private void init(Context context,  AttributeSet attrs) {
+    private void init(Context context, AttributeSet attrs) {
         mMainFab = createMainFab();
         addView(mMainFab);
         setClipChildren(false);
@@ -485,7 +480,8 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         }
         TypedArray attr = context.obtainStyledAttributes(attrs, R.styleable.SpeedDialView, 0, 0);
         try {
-            @DrawableRes int openDrawableRes = attr.getResourceId(R.styleable.SpeedDialView_srcCompat, NOT_SET);
+            @DrawableRes
+            int openDrawableRes = attr.getResourceId(R.styleable.SpeedDialView_srcCompat, NOT_SET);
             if (openDrawableRes == NOT_SET) {
                 openDrawableRes = attr.getResourceId(R.styleable.SpeedDialView_srcCompat, NOT_SET);
             }
@@ -514,8 +510,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
 
     private FloatingActionButton createMainFab() {
         FloatingActionButton floatingActionButton = new FloatingActionButton(getContext());
-        LayoutParams layoutParams = new LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.gravity = Gravity.END;
         int margin = UiUtils.dpToPx(getContext(), 4);
         layoutParams.setMargins(0, 0, margin, 0);
@@ -525,6 +520,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         floatingActionButton.setFocusable(true);
         floatingActionButton.setSize(FloatingActionButton.SIZE_NORMAL);
         floatingActionButton.setOnClickListener(new OnClickListener() {
+
             @Override
             public void onClick(final View view) {
                 if (!mIsOpen && !mFabWithLabelViews.isEmpty()) {
@@ -596,7 +592,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         }
     }
 
-    
+    @Nullable
     private FabWithLabelView findFabWithLabelViewById(@IdRes int id) {
         for (FabWithLabelView fabWithLabelView : mFabWithLabelViews) {
             if (fabWithLabelView.getId() == id) {
@@ -654,6 +650,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
      * Listener for handling events on option fab's.
      */
     public interface OnChangeListener {
+
         /**
          * Called when the main action has been clicked.
          */
@@ -664,28 +661,33 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
          *
          * @param isOpen true if the speed dial is open, false otherwise.
          */
-        void onToggleChanged(boolean isOpen);
+        void onToggleChanged(@Nullable boolean isOpen);
     }
 
     /**
      * Listener for handling events on option fab's.
      */
     public interface OnActionSelectedListener {
+
         /**
          * Called when a speed dial action has been clicked.
          *
          * @param actionItem the {@link SpeedDialActionItem} that was selected.
          * @return true if the callback consumed the click, false otherwise.
          */
-        boolean onActionSelected(SpeedDialActionItem actionItem);
+        boolean onActionSelected(@Nullable SpeedDialActionItem actionItem);
     }
 
     @Retention(SOURCE)
-    @IntDef({TOP, BOTTOM, LEFT, RIGHT})
+    @IntDef({ TOP, BOTTOM, LEFT, RIGHT })
     public @interface ExpansionMode {
+
         int TOP = 0;
+
         int BOTTOM = 1;
+
         int LEFT = 2;
+
         int RIGHT = 3;
     }
 
@@ -694,14 +696,15 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
      * is to move {@link View} views so that any displayed {@link android.support.design.widget.Snackbar}s do
      * not cover them.
      */
-    
     public static class SnackbarBehavior extends CoordinatorLayout.Behavior<View> {
+
         private static final boolean AUTO_HIDE_DEFAULT = true;
 
-        
+        @Nullable
         private Rect mTmpRect;
-        
+
         private OnVisibilityChangedListener mInternalAutoHideListener;
+
         private boolean mAutoHideEnabled;
 
         public SnackbarBehavior() {
@@ -711,19 +714,15 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
 
         public SnackbarBehavior(Context context, AttributeSet attrs) {
             super(context, attrs);
-            TypedArray a = context.obtainStyledAttributes(attrs,
-                    android.support.design.R.styleable.FloatingActionButton_Behavior_Layout);
-            mAutoHideEnabled = a.getBoolean(
-                    android.support.design.R.styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide,
-                    AUTO_HIDE_DEFAULT);
+            TypedArray a = context.obtainStyledAttributes(attrs, android.support.design.R.styleable.FloatingActionButton_Behavior_Layout);
+            mAutoHideEnabled = a.getBoolean(android.support.design.R.styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide, AUTO_HIDE_DEFAULT);
             a.recycle();
         }
 
-        private static boolean isBottomSheet( View view) {
+        private static boolean isBottomSheet(View view) {
             final ViewGroup.LayoutParams lp = view.getLayoutParams();
             if (lp instanceof CoordinatorLayout.LayoutParams) {
-                return ((CoordinatorLayout.LayoutParams) lp)
-                        .getBehavior() instanceof BottomSheetBehavior;
+                return ((CoordinatorLayout.LayoutParams) lp).getBehavior() instanceof BottomSheetBehavior;
             }
             return false;
         }
@@ -750,7 +749,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         }
 
         @Override
-        public void onAttachedToLayoutParams( CoordinatorLayout.LayoutParams lp) {
+        public void onAttachedToLayoutParams(CoordinatorLayout.LayoutParams lp) {
             if (lp.dodgeInsetEdges == Gravity.NO_GRAVITY) {
                 // If the developer hasn't set dodgeInsetEdges, lets set it to BOTTOM so that
                 // we dodge any Snackbars
@@ -759,8 +758,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         }
 
         @Override
-        public boolean onDependentViewChanged(CoordinatorLayout parent, View child,
-                                              View dependency) {
+        public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency) {
             if (dependency instanceof AppBarLayout) {
                 // If we're depending on an AppBarLayout we will show/hide it automatically
                 // if the VIEW is anchored to the AppBarLayout
@@ -772,15 +770,13 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         }
 
         @Override
-        public boolean onLayoutChild(CoordinatorLayout parent, View child,
-                                     int layoutDirection) {
+        public boolean onLayoutChild(CoordinatorLayout parent, View child, int layoutDirection) {
             // First, let's make sure that the visibility of the VIEW is consistent
             final List<View> dependencies = parent.getDependencies(child);
             for (int i = 0, count = dependencies.size(); i < count; i++) {
                 final View dependency = dependencies.get(i);
                 if (dependency instanceof AppBarLayout) {
-                    if (updateFabVisibilityForAppBarLayout(
-                            parent, (AppBarLayout) dependency, child)) {
+                    if (updateFabVisibilityForAppBarLayout(parent, (AppBarLayout) dependency, child)) {
                         break;
                     }
                 } else if (isBottomSheet(dependency)) {
@@ -820,41 +816,33 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         }
 
         private boolean shouldUpdateVisibility(View dependency, View child) {
-            final CoordinatorLayout.LayoutParams lp =
-                    (CoordinatorLayout.LayoutParams) child.getLayoutParams();
+            final CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) child.getLayoutParams();
             if (!mAutoHideEnabled) {
                 return false;
             }
-
             if (lp.getAnchorId() != dependency.getId()) {
                 // The anchor ID doesn't match the dependency, so we won't automatically
                 // show/hide the VIEW
                 return false;
             }
-
             //noinspection RedundantIfStatement
             if (child.getVisibility() != VISIBLE) {
                 // The view isn't set to be visible so skip changing its visibility
                 return false;
             }
-
             return true;
         }
 
-        private boolean updateFabVisibilityForAppBarLayout(CoordinatorLayout parent,
-                                                           AppBarLayout appBarLayout, View child) {
+        private boolean updateFabVisibilityForAppBarLayout(CoordinatorLayout parent, AppBarLayout appBarLayout, View child) {
             if (!shouldUpdateVisibility(appBarLayout, child)) {
                 return false;
             }
-
             if (mTmpRect == null) {
                 mTmpRect = new Rect();
             }
-
             // First, let's get the visible rect of the dependency
             final Rect rect = mTmpRect;
             ViewGroupUtils.getDescendantRect(parent, appBarLayout, rect);
-
             if (rect.bottom <= getMinimumHeightForVisibleOverlappingContent(appBarLayout)) {
                 // If the anchor's bottom is below the seam, we'll animate our VIEW out
                 //            child.hide(mInternalAutoHideListener);
@@ -877,13 +865,11 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
             }
         }
 
-        private boolean updateFabVisibilityForBottomSheet(View bottomSheet,
-                                                          View child) {
+        private boolean updateFabVisibilityForBottomSheet(View bottomSheet, View child) {
             if (!shouldUpdateVisibility(bottomSheet, child)) {
                 return false;
             }
-            CoordinatorLayout.LayoutParams lp =
-                    (CoordinatorLayout.LayoutParams) child.getLayoutParams();
+            CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) child.getLayoutParams();
             if (bottomSheet.getTop() < child.getHeight() / 2 + lp.topMargin) {
                 hide(child);
             } else {
@@ -898,8 +884,8 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
      * is to move {@link View} views so that any displayed {@link android.support.design.widget.Snackbar}s do
      * not cover them.
      */
-    
     public static class ScrollingViewSnackbarBehavior extends SnackbarBehavior {
+
         public ScrollingViewSnackbarBehavior() {
         }
 
@@ -908,8 +894,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         }
 
         @Override
-        public boolean onStartNestedScroll( CoordinatorLayout coordinatorLayout,  View child, 
-                View directTargetChild,  View target, int axes, int type) {
+        public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, View child, View directTargetChild, View target, int axes, int type) {
             return true;
         }
 
@@ -919,10 +904,8 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
         }
 
         @Override
-        public void onNestedScroll( CoordinatorLayout coordinatorLayout,  View child,  View
-                target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type) {
-            super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed,
-                    type);
+        public void onNestedScroll(CoordinatorLayout coordinatorLayout, View child, View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type) {
+            super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, type);
             if (dyConsumed > 0 && child.getVisibility() == View.VISIBLE) {
                 hide(child);
             } else if (dyConsumed < 0) {
@@ -932,6 +915,7 @@ public class SpeedDialView extends LinearLayout implements CoordinatorLayout.Att
     }
 
     public static class NoBehavior extends CoordinatorLayout.Behavior<View> {
+
         public NoBehavior() {
         }
 
