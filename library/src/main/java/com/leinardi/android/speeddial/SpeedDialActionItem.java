@@ -15,16 +15,12 @@
  */
 
 package com.leinardi.android.speeddial;
-
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
+import javax.annotation.Nullable;import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
-import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.content.res.AppCompatResources;

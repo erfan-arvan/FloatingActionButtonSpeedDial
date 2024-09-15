@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.leinardi.android.speeddial;
-
+import javax.annotation.Nullable;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -24,34 +23,43 @@ import android.os.Parcelable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
-import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.content.res.AppCompatResources;
-
 import static android.support.design.widget.FloatingActionButton.SIZE_AUTO;
 
-
 public class SpeedDialActionItem implements Parcelable {
+
     public static final int NOT_SET = Integer.MIN_VALUE;
+
     @IdRes
     private final int mId;
+
     private final String mLabel;
+
     @DrawableRes
     private final int mFabImageResource;
-    
+
+    @Nullable
     private final Drawable mFabImageDrawable;
+
     @ColorInt
     private final int mFabImageTintColor;
+
     @ColorInt
     private final int mFabBackgroundColor;
+
     @ColorInt
     private final int mLabelColor;
+
     @ColorInt
     private final int mLabelBackgroundColor;
+
     private final boolean mLabelClickable;
+
     @FloatingActionButton.Size
     private final int mFabSize;
+
     @StyleRes
     private final int mTheme;
 
@@ -83,7 +91,6 @@ public class SpeedDialActionItem implements Parcelable {
      * @param context A context to retrieve the Drawable from (needed for SpeedDialActionItem.Builder(int, int).
      * @return the speed dial item drawable, or null if no drawable has been assigned.
      */
-    
     public Drawable getFabImageDrawable(Context context) {
         if (mFabImageDrawable != null) {
             return mFabImageDrawable;
@@ -124,29 +131,41 @@ public class SpeedDialActionItem implements Parcelable {
 
     // Disabled due to https://issuetracker.google.com/issues/77303906
     @FloatingActionButton.Size
-    /* public */ int getFabSize() {
+    /* public */
+    int getFabSize() {
         return mFabSize;
     }
 
     public static class Builder {
+
         @IdRes
         private final int mId;
+
         @DrawableRes
         private final int mFabImageResource;
-        
+
+        @Nullable
         private Drawable mFabImageDrawable;
+
         @ColorInt
         private int mFabImageTintColor = NOT_SET;
+
         private String mLabel;
+
         @ColorInt
         private int mFabBackgroundColor = NOT_SET;
+
         @ColorInt
         private int mLabelColor = NOT_SET;
+
         @ColorInt
         private int mLabelBackgroundColor = NOT_SET;
+
         private boolean mLabelClickable = true;
+
         @FloatingActionButton.Size
         private int mFabSize = SIZE_AUTO;
+
         @StyleRes
         private int mTheme = NOT_SET;
 
@@ -172,7 +191,7 @@ public class SpeedDialActionItem implements Parcelable {
          *                 of {@link SpeedDialView}. The identifier should be a positive number.
          * @param drawable the Drawable to set, or null to clear the content
          */
-        public Builder(@IdRes int id,  Drawable drawable) {
+        public Builder(@IdRes int id, Drawable drawable) {
             mId = id;
             mFabImageDrawable = drawable;
             mFabImageResource = NOT_SET;
@@ -218,11 +237,11 @@ public class SpeedDialActionItem implements Parcelable {
         }
 
         // Disabled due to https://issuetracker.google.com/issues/77303906
-        /* public */ Builder setFabSize(@FloatingActionButton.Size int fabSize) {
+        /* public */
+        Builder setFabSize(@FloatingActionButton.Size int fabSize) {
             mFabSize = fabSize;
             return this;
         }
-
     }
 
     @Override
@@ -249,8 +268,7 @@ public class SpeedDialActionItem implements Parcelable {
         this.mId = in.readInt();
         this.mLabel = in.readString();
         this.mFabImageResource = in.readInt();
-        this.mFabImageDrawable =
-                UiUtils.getDrawableFromBitmap((Bitmap) in.readParcelable(Bitmap.class.getClassLoader()));
+        this.mFabImageDrawable = UiUtils.getDrawableFromBitmap((Bitmap) in.readParcelable(Bitmap.class.getClassLoader()));
         this.mFabImageTintColor = in.readInt();
         this.mFabBackgroundColor = in.readInt();
         this.mLabelColor = in.readInt();
@@ -261,6 +279,7 @@ public class SpeedDialActionItem implements Parcelable {
     }
 
     public static final Creator<SpeedDialActionItem> CREATOR = new Creator<SpeedDialActionItem>() {
+
         @Override
         public SpeedDialActionItem createFromParcel(Parcel source) {
             return new SpeedDialActionItem(source);

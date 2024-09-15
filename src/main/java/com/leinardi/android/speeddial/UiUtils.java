@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.leinardi.android.speeddial;
-
+import javax.annotation.Nullable;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -24,19 +23,19 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
-import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
-
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 public class UiUtils {
+
     public static final float ROTATION_ANGLE = 45.0F;
+
     private static final int SHORT_ANIM_TIME = 200;
 
     private UiUtils() {
@@ -86,18 +85,13 @@ public class UiUtils {
         ViewCompat.animate(view).cancel();
         view.setAlpha(1F);
         view.setVisibility(VISIBLE);
-        ViewCompat.animate(view)
-                .alpha(0F)
-                .withLayer()
-                .setDuration(SHORT_ANIM_TIME)
-                .setInterpolator(new AccelerateDecelerateInterpolator())
-                .withEndAction(new Runnable() {
-                    @Override
-                    public void run() {
-                        view.setVisibility(GONE);
-                    }
-                })
-                .start();
+        ViewCompat.animate(view).alpha(0F).withLayer().setDuration(SHORT_ANIM_TIME).setInterpolator(new AccelerateDecelerateInterpolator()).withEndAction(new Runnable() {
+
+            @Override
+            public void run() {
+                view.setVisibility(GONE);
+            }
+        }).start();
     }
 
     /**
@@ -109,12 +103,7 @@ public class UiUtils {
         ViewCompat.animate(view).cancel();
         view.setAlpha(0);
         view.setVisibility(VISIBLE);
-        ViewCompat.animate(view)
-                .alpha(1F)
-                .withLayer()
-                .setDuration(SHORT_ANIM_TIME)
-                .setInterpolator(new AccelerateDecelerateInterpolator())
-                .start();
+        ViewCompat.animate(view).alpha(1F).withLayer().setDuration(SHORT_ANIM_TIME).setInterpolator(new AccelerateDecelerateInterpolator()).start();
     }
 
     /**
@@ -125,25 +114,20 @@ public class UiUtils {
      */
     public static void shrinkAnim(final View view, final boolean removeView) {
         ViewCompat.animate(view).cancel();
-        ViewCompat.animate(view)
-                .alpha(0F)
-                .withLayer()
-                .setDuration(SHORT_ANIM_TIME)
-                .setInterpolator(new AccelerateDecelerateInterpolator())
-                .withEndAction(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (removeView) {
-                            ViewGroup parent = (ViewGroup) view.getParent();
-                            if (parent != null) {
-                                parent.removeView(view);
-                            }
-                        } else {
-                            view.setVisibility(GONE);
-                        }
+        ViewCompat.animate(view).alpha(0F).withLayer().setDuration(SHORT_ANIM_TIME).setInterpolator(new AccelerateDecelerateInterpolator()).withEndAction(new Runnable() {
+
+            @Override
+            public void run() {
+                if (removeView) {
+                    ViewGroup parent = (ViewGroup) view.getParent();
+                    if (parent != null) {
+                        parent.removeView(view);
                     }
-                })
-                .start();
+                } else {
+                    view.setVisibility(GONE);
+                }
+            }
+        }).start();
     }
 
     /**
@@ -154,12 +138,7 @@ public class UiUtils {
      * @see #rotateBackward(View, boolean)
      */
     public static void rotateForward(View view, boolean animate) {
-        ViewCompat.animate(view)
-                .rotation(ROTATION_ANGLE)
-                .withLayer()
-                .setDuration(animate ? SHORT_ANIM_TIME : 0)
-                .setInterpolator(new AccelerateDecelerateInterpolator())
-                .start();
+        ViewCompat.animate(view).rotation(ROTATION_ANGLE).withLayer().setDuration(animate ? SHORT_ANIM_TIME : 0).setInterpolator(new AccelerateDecelerateInterpolator()).start();
     }
 
     /**
@@ -170,17 +149,13 @@ public class UiUtils {
      * @see #rotateForward(View, boolean)
      */
     public static void rotateBackward(View view, boolean animate) {
-        ViewCompat.animate(view)
-                .rotation(0.0F)
-                .withLayer()
-                .setDuration(animate ? SHORT_ANIM_TIME : 0)
-                .setInterpolator(new AccelerateDecelerateInterpolator())
-                .start();
+        ViewCompat.animate(view).rotation(0.0F).withLayer().setDuration(animate ? SHORT_ANIM_TIME : 0).setInterpolator(new AccelerateDecelerateInterpolator()).start();
     }
 
     public static Drawable getRotateDrawable(final Drawable drawable, final float angle) {
-        final Drawable[] drawables = {drawable};
+        final Drawable[] drawables = { drawable };
         return new LayerDrawable(drawables) {
+
             @Override
             public void draw(final Canvas canvas) {
                 canvas.save();
@@ -194,8 +169,7 @@ public class UiUtils {
     /**
      * Creates a {@link Bitmap} from a {@link Drawable}.
      */
-    
-    public static Bitmap getBitmapFromDrawable( Drawable drawable) {
+    public static Bitmap getBitmapFromDrawable(Drawable drawable) {
         if (drawable == null) {
             return null;
         } else {
@@ -206,15 +180,12 @@ public class UiUtils {
                     return bitmapDrawable.getBitmap();
                 }
             }
-
             if (drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
                 // Single color bitmap will be created of 1x1 pixel
                 bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
             } else {
-                bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap
-                        .Config.ARGB_8888);
+                bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
             }
-
             Canvas canvas = new Canvas(bitmap);
             drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
             drawable.draw(canvas);
@@ -225,8 +196,7 @@ public class UiUtils {
     /**
      * Creates a {@link Drawable} from a {@link Bitmap}.
      */
-    
-    public static Drawable getDrawableFromBitmap( Bitmap bitmap) {
+    public static Drawable getDrawableFromBitmap(Bitmap bitmap) {
         if (bitmap == null) {
             return null;
         } else {

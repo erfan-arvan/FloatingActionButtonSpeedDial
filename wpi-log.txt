@@ -1,225 +1,320 @@
++ PROJECT_PATH=../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial
++ CF_BINARY=../scripts/tools/checker-framework-3.34.0/checker/bin/javac
++ COMPILED_CLASSES_FOLDER=../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classes
++ LIB_FOLDER=../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib
++ SRC_FILES=../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/cf_srcs.txt
++ CLASSPATH_DIR=../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ echo 'CF_BINARY: ../scripts/tools/checker-framework-3.34.0/checker/bin/javac'
 CF_BINARY: ../scripts/tools/checker-framework-3.34.0/checker/bin/javac
-warning [../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/lib/res.jar]:  zipfile is empty
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:236: warning: (argument) $$ 4 $$ val $$ Parcel.writeString $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 7568, 7579 ) $$ incompatible argument for parameter val of Parcel.writeString.
-        dest.writeString(this.mLabel);
-                             ^
-  found   : @Initialized @MonotonicNonNull String
-  required: @Initialized @NonNull String
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:253: warning: (argument) $$ 4 $$ loader $$ Parcel.readParcelable $$ @Initialized @Nullable ClassLoader $$ @Initialized @NonNull ClassLoader $$ ( 8331, 8360 ) $$ incompatible argument for parameter loader of Parcel.readParcelable.
-                UiUtils.getDrawableFromBitmap((Bitmap) in.readParcelable(Bitmap.class.getClassLoader()));
-                                                                                                    ^
-  found   : @Initialized @Nullable ClassLoader
-  required: @Initialized @NonNull ClassLoader
-2 warnings
-An exception has occurred in the compiler (17.0.10). Please file a bug against the Java compiler via the Java bug reporting page (https://bugreport.java.com) after checking the Bug Database (https://bugs.java.com) for duplicates. Include your program, the following diagnostic, and the parameters passed to the Java compiler in your report. Thank you.
-com.sun.tools.javac.util.ClientCodeException: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
-	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:858)
-	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
-	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1394)
-	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1351)
-	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:946)
-	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
-	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
-	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
-	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
-Caused by: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage$1.processVariable(WholeProgramInferenceJavaParserStorage.java:866)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:1414)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:189)
-	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:1045)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:565)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:499)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:189)
-	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:573)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:480)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.createWrappersForClass(WholeProgramInferenceJavaParserStorage.java:871)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.addClassTree(WholeProgramInferenceJavaParserStorage.java:616)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.preprocessClassTree(WholeProgramInferenceJavaParserStorage.java:587)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceImplementation.preprocessClassTree(WholeProgramInferenceImplementation.java:1154)
-	at org.checkerframework.framework.type.AnnotatedTypeFactory.setRoot(AnnotatedTypeFactory.java:915)
-	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.setRoot(GenericAnnotatedTypeFactory.java:449)
-	at org.checkerframework.common.basetype.BaseTypeVisitor.setRoot(BaseTypeVisitor.java:387)
-	at org.checkerframework.framework.source.SourceChecker.setRoot(SourceChecker.java:685)
-	at org.checkerframework.common.basetype.BaseTypeChecker.setRoot(BaseTypeChecker.java:167)
-	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1074)
-	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:559)
-	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:552)
-	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
-	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
-	... 8 more
-printing javac parameters to: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/javac.20240822_184752.args
-entering iteration 1
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:91: warning: (return) $$ 2 $$ @Initialized @Nullable Drawable $$ @Initialized @NonNull Drawable $$ ( 3085, 3143 ) $$ incompatible types in return.
++ unzip_jars ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ local lib_folder=../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib
++ local extract_to=../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ '[' -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath ']'
++ rm -rf ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ mkdir -p ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/FastInfoset-1.2.13.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/Saxon-HE-9.8.0-7.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/animal-sniffer-annotations-1.14.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/animated-vector-drawable-27.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/annotations-13.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/annotations-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/antlr-2.7.7.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/antlr4-runtime-4.7.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/apksig-3.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/appcompat-v7-27.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/asm-5.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/asm-analysis-5.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/asm-commons-5.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/asm-tree-5.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/asm-util-5.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/auto-common-0.10.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/bcpkix-jdk15on-1.56.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/bcprov-jdk15on-1.56.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/builder-3.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/builder-model-3.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/builder-test-api-3.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/cardview-v7-27.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/checker-compat-qual-2.0.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/checker-qual-2.5.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/checkstyle-8.8.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q '../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/classes 2.jar' -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/classes.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/common-1.1.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/common-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/commons-beanutils-1.9.3.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/commons-cli-1.4.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/commons-codec-1.6.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/commons-collections-3.2.2.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/commons-compress-1.12.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/commons-logging-1.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/dataflow-2.5.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/ddmlib-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/design-27.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/diffutils-1.3.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/dvlib-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/error_prone_annotation-2.3.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/error_prone_annotations-2.0.18.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/error_prone_annotations-2.1.3.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/error_prone_annotations-2.3.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/error_prone_check_api-2.3.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/error_prone_core-2.3.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/error_prone_type_annotations-2.3.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/fastutil-7.2.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/gradle-api-3.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/groovy-all-2.4.12.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/gson-2.7.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/guava-22.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/guava-23.5-jre.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/guava-23.6-jre.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/httpclient-4.2.6.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/httpcore-4.2.5.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/httpmime-4.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/intellij-core-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/istack-commons-runtime-2.21.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/j2objc-annotations-1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/jFormatString-3.0.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/javac-9+181-r4173-1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/javacutil-2.5.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/javawriter-2.5.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/javax.activation-1.2.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/jaxb-api-2.2.12-b140109.1041.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/jaxb-core-2.2.11.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/jaxb-runtime-2.2.11.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/jcip-annotations-1.0-1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/jimfs-1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/jopt-simple-4.9.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/json-simple-1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/jsr305-3.0.2.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/kotlin-compiler-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/kotlin-reflect-1.2.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/kotlin-stdlib-1.2.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/kotlin-stdlib-jre7-1.2.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/kotlin-stdlib-jre8-1.2.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/kxml2-2.3.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/layoutlib-api-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/lint-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/lint-api-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/lint-checks-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/lint-gradle-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/lint-gradle-api-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/lint-kotlin-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/livedata-core-1.1.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/manifest-merger-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/mockable-android-27.v3.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/nullaway-0.4.2.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/pcollections-2.1.2.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/protobuf-java-3.4.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/protos-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/recyclerview-v7-27.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/repository-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/res.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
+warning [../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/res.jar]:  zipfile is empty
++ true
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/runtime-1.1.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/sdk-common-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/sdklib-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/shared-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/software-and-algorithms-1.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/speed-dial-1.0-alpha04-javadoc.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/speed-dial-1.0-alpha04-sources.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/stax-ex-1.7.7.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/support-annotations-27.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/support-compat-27.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/support-core-ui-27.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/support-core-utils-27.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/support-fragment-27.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/support-media-compat-27.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/support-v4-27.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/support-vector-drawable-27.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/tracker-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/transition-27.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/trove4j-20160824.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/txw2-2.2.11.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/uast-26.1.1.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/lib/viewmodel-1.1.0.jar -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath
++ find ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/src -name '*.java'
++ BUILD_CMD='../scripts/tools/checker-framework-3.34.0/checker/bin/javac -processor org.checkerframework.checker.nullness.NullnessChecker -AassumePure -Adetailedmsgtext -Aajava=../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/wpi-out -Ainfer=ajava -Awarns -AshowPrefixInWarningMessages -J-Xmx32G -Xmaxerrs 10000 -g -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classes -cp ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath @../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/cf_srcs.txt'
++ CLEAN_CMD='rm -rf ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classes'
++ ../scripts/tools/checker-framework-3.34.0/checker/bin/javac -processor org.checkerframework.checker.nullness.NullnessChecker -AassumePure -Adetailedmsgtext -Aajava=../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/wpi-out -Ainfer=ajava -Awarns -AshowPrefixInWarningMessages -J-Xmx32G -Xmaxerrs 10000 -g -d ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classes -cp ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath @../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/cf_srcs.txt
+warning: KeyForSubchecker did not find annotation file or directory ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/wpi-out on classpath or within directory /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial
+    Classpath:
+    file:/Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/scripts/tools/checker-framework-3.34.0/checker/dist/checker-util.jar
+    file:/Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/scripts/tools/checker-framework-3.34.0/checker/dist/checker.jar
+    file:/Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/scripts/tools/checker-framework-3.34.0/checker/dist/checker-qual.jar
+    file:///Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath/
+    file:/Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/scripts/tools/checker-framework-3.34.0/checker/dist/javac.jar
+warning: NullnessChecker did not find annotation file or directory ../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/wpi-out on classpath or within directory /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial
+    Classpath:
+    file:/Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/scripts/tools/checker-framework-3.34.0/checker/dist/checker-util.jar
+    file:/Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/scripts/tools/checker-framework-3.34.0/checker/dist/checker.jar
+    file:/Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/scripts/tools/checker-framework-3.34.0/checker/dist/checker-qual.jar
+    file:///Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/classpath/
+    file:/Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/scripts/tools/checker-framework-3.34.0/checker/dist/javac.jar
+../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:98: warning: (return) $$ 2 $$ @Initialized @Nullable Drawable $$ @Initialized @NonNull Drawable $$ ( 3087, 3145 ) $$ incompatible types in return.
             return AppCompatResources.getDrawable(context, mFabImageResource);
                                                  ^
   type of expression: @Initialized @Nullable Drawable
   method return type: @Initialized @NonNull Drawable
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:93: warning: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Drawable $$ ( 3181, 3185 ) $$ incompatible types in return.
+../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:100: warning: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Drawable $$ ( 3183, 3187 ) $$ incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull Drawable
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:162: warning: (initialization.fields.uninitialized) $$ 1 $$ mLabel $$ ( 5220, 5406 ) $$ the constructor does not initialize fields: mLabel
+../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:181: warning: (initialization.fields.uninitialized) $$ 1 $$ mLabel $$ ( 5246, 5432 ) $$ the constructor does not initialize fields: mLabel
         public Builder(@IdRes int id, @DrawableRes int fabImageResource) {
                ^
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:165: warning: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Drawable $$ ( 5391, 5395 ) $$ incompatible types in assignment.
-            mFabImageDrawable = null;
-                                ^
-  found   : null (NullType)
-  required: @Initialized @NonNull Drawable
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:175: warning: (initialization.fields.uninitialized) $$ 1 $$ mLabel $$ ( 5835, 6001 ) $$ the constructor does not initialize fields: mLabel
-        public Builder(@IdRes int id,  Drawable drawable) {
+../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:194: warning: (initialization.fields.uninitialized) $$ 1 $$ mLabel $$ ( 5861, 6026 ) $$ the constructor does not initialize fields: mLabel
+        public Builder(@IdRes int id, Drawable drawable) {
                ^
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:253: warning: (argument) $$ 4 $$ loader $$ Parcel.readParcelable $$ @Initialized @Nullable ClassLoader $$ @Initialized @NonNull ClassLoader $$ ( 8331, 8360 ) $$ incompatible argument for parameter loader of Parcel.readParcelable.
-                UiUtils.getDrawableFromBitmap((Bitmap) in.readParcelable(Bitmap.class.getClassLoader()));
-                                                                                                    ^
-  found   : @Initialized @Nullable ClassLoader
-  required: @Initialized @NonNull ClassLoader
-6 warnings
-An exception has occurred in the compiler (17.0.10). Please file a bug against the Java compiler via the Java bug reporting page (https://bugreport.java.com) after checking the Bug Database (https://bugs.java.com) for duplicates. Include your program, the following diagnostic, and the parameters passed to the Java compiler in your report. Thank you.
-com.sun.tools.javac.util.ClientCodeException: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
-	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:858)
-	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
-	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1394)
-	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1351)
-	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:946)
-	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
-	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
-	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
-	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
-Caused by: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage$1.processVariable(WholeProgramInferenceJavaParserStorage.java:866)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:1414)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:189)
-	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:1045)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:565)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:499)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:189)
-	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:573)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:480)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.createWrappersForClass(WholeProgramInferenceJavaParserStorage.java:871)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.addClassTree(WholeProgramInferenceJavaParserStorage.java:616)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.preprocessClassTree(WholeProgramInferenceJavaParserStorage.java:587)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceImplementation.preprocessClassTree(WholeProgramInferenceImplementation.java:1154)
-	at org.checkerframework.framework.type.AnnotatedTypeFactory.setRoot(AnnotatedTypeFactory.java:915)
-	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.setRoot(GenericAnnotatedTypeFactory.java:449)
-	at org.checkerframework.common.basetype.BaseTypeVisitor.setRoot(BaseTypeVisitor.java:387)
-	at org.checkerframework.framework.source.SourceChecker.setRoot(SourceChecker.java:685)
-	at org.checkerframework.common.basetype.BaseTypeChecker.setRoot(BaseTypeChecker.java:167)
-	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1074)
-	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:559)
-	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:552)
-	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
-	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
-	... 8 more
-printing javac parameters to: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/javac.20240822_184758.args
-realpath: iteration1.diff: No such file or directory
-putting the diff for iteration 1 into 
-ending iteration 1, time taken: 6 seconds
-
-entering iteration 2
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:60: warning: (assignment) $$ 2 $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1984, 1998 ) $$ incompatible types in assignment.
-        mLabel = builder.mLabel;
-                        ^
-  found   : @Initialized @MonotonicNonNull String
-  required: @Initialized @NonNull String
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:63: warning: (assignment) $$ 2 $$ @Initialized @MonotonicNonNull Drawable $$ @Initialized @NonNull Drawable $$ ( 2140, 2165 ) $$ incompatible types in assignment.
-        mFabImageDrawable = builder.mFabImageDrawable;
-                                   ^
-  found   : @Initialized @MonotonicNonNull Drawable
-  required: @Initialized @NonNull Drawable
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:253: warning: (argument) $$ 4 $$ loader $$ Parcel.readParcelable $$ @Initialized @Nullable ClassLoader $$ @Initialized @NonNull ClassLoader $$ ( 8331, 8360 ) $$ incompatible argument for parameter loader of Parcel.readParcelable.
-                UiUtils.getDrawableFromBitmap((Bitmap) in.readParcelable(Bitmap.class.getClassLoader()));
-                                                                                                    ^
-  found   : @Initialized @Nullable ClassLoader
-  required: @Initialized @NonNull ClassLoader
-3 warnings
-An exception has occurred in the compiler (17.0.10). Please file a bug against the Java compiler via the Java bug reporting page (https://bugreport.java.com) after checking the Bug Database (https://bugs.java.com) for duplicates. Include your program, the following diagnostic, and the parameters passed to the Java compiler in your report. Thank you.
-com.sun.tools.javac.util.ClientCodeException: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
-	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:858)
-	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
-	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1394)
-	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1351)
-	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:946)
-	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
-	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
-	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
-	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
-Caused by: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage$1.processVariable(WholeProgramInferenceJavaParserStorage.java:866)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:1414)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:189)
-	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:1045)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:565)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:499)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:189)
-	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:573)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:480)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.createWrappersForClass(WholeProgramInferenceJavaParserStorage.java:871)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.addClassTree(WholeProgramInferenceJavaParserStorage.java:616)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.preprocessClassTree(WholeProgramInferenceJavaParserStorage.java:587)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceImplementation.preprocessClassTree(WholeProgramInferenceImplementation.java:1154)
-	at org.checkerframework.framework.type.AnnotatedTypeFactory.setRoot(AnnotatedTypeFactory.java:915)
-	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.setRoot(GenericAnnotatedTypeFactory.java:449)
-	at org.checkerframework.common.basetype.BaseTypeVisitor.setRoot(BaseTypeVisitor.java:387)
-	at org.checkerframework.framework.source.SourceChecker.setRoot(SourceChecker.java:685)
-	at org.checkerframework.common.basetype.BaseTypeChecker.setRoot(BaseTypeChecker.java:167)
-	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1074)
-	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:559)
-	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:552)
-	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
-	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
-	... 8 more
-printing javac parameters to: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/javac.20240822_184805.args
-realpath: iteration2.diff: No such file or directory
-putting the diff for iteration 2 into 
-ending iteration 2, time taken: 7 seconds
-
-entering iteration 3
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:77: warning: (return) $$ 2 $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 2558, 2564 ) $$ incompatible types in return.
-        return mLabel;
-               ^
-  type of expression: @Initialized @MonotonicNonNull String
-  method return type: @Initialized @NonNull String
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:236: warning: (argument) $$ 4 $$ val $$ Parcel.writeString $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 7568, 7579 ) $$ incompatible argument for parameter val of Parcel.writeString.
-        dest.writeString(this.mLabel);
-                             ^
-  found   : @Initialized @MonotonicNonNull String
-  required: @Initialized @NonNull String
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:238: warning: (argument) $$ 4 $$ drawable $$ UiUtils.getBitmapFromDrawable $$ @Initialized @MonotonicNonNull Drawable $$ @Initialized @NonNull Drawable $$ ( 7688, 7710 ) $$ incompatible argument for parameter drawable of UiUtils.getBitmapFromDrawable.
+../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:257: warning: (argument) $$ 4 $$ drawable $$ UiUtils.getBitmapFromDrawable $$ @Initialized @Nullable Drawable $$ @Initialized @NonNull Drawable $$ ( 7720, 7742 ) $$ incompatible argument for parameter drawable of UiUtils.getBitmapFromDrawable.
         dest.writeParcelable(UiUtils.getBitmapFromDrawable(this.mFabImageDrawable), flags);
                                                                ^
-  found   : @Initialized @MonotonicNonNull Drawable
+  found   : @Initialized @Nullable Drawable
   required: @Initialized @NonNull Drawable
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:253: warning: (argument) $$ 4 $$ loader $$ Parcel.readParcelable $$ @Initialized @Nullable ClassLoader $$ @Initialized @NonNull ClassLoader $$ ( 8331, 8360 ) $$ incompatible argument for parameter loader of Parcel.readParcelable.
-                UiUtils.getDrawableFromBitmap((Bitmap) in.readParcelable(Bitmap.class.getClassLoader()));
-                                                                                                    ^
+../dataset/pre_nullgtn_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:271: warning: (argument) $$ 4 $$ loader $$ Parcel.readParcelable $$ @Initialized @Nullable ClassLoader $$ @Initialized @NonNull ClassLoader $$ ( 8347, 8376 ) $$ incompatible argument for parameter loader of Parcel.readParcelable.
+        this.mFabImageDrawable = UiUtils.getDrawableFromBitmap((Bitmap) in.readParcelable(Bitmap.class.getClassLoader()));
+                                                                                                                     ^
   found   : @Initialized @Nullable ClassLoader
   required: @Initialized @NonNull ClassLoader
-4 warnings
-An exception has occurred in the compiler (17.0.10). Please file a bug against the Java compiler via the Java bug reporting page (https://bugreport.java.com) after checking the Bug Database (https://bugs.java.com) for duplicates. Include your program, the following diagnostic, and the parameters passed to the Java compiler in your report. Thank you.
-com.sun.tools.javac.util.ClientCodeException: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
-	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:858)
+8 warnings
+An exception has occurred in the compiler (11.0.22). Please file a bug against the Java compiler via the Java bug reporting page (https://bugreport.java.com) after checking the Bug Database (https://bugs.java.com) for duplicates. Include your program and the following diagnostic in your report. Thank you.
+com.sun.tools.javac.util.ClientCodeException: java.lang.NullPointerException
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:832)
 	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
-	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1394)
-	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1351)
-	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:946)
-	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
-	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
-	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
-	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
-Caused by: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1414)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1371)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:973)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:311)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:170)
+	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:57)
+	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:43)
+Caused by: java.lang.NullPointerException
 	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage$1.processVariable(WholeProgramInferenceJavaParserStorage.java:866)
 	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:1414)
 	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:189)
-	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:1045)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:990)
 	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:565)
 	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:499)
 	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:189)
-	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:808)
 	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:573)
 	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:480)
 	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.createWrappersForClass(WholeProgramInferenceJavaParserStorage.java:871)
@@ -235,62 +330,5 @@ Caused by: java.lang.NullPointerException: Cannot read field "fields" because "e
 	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:559)
 	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:552)
 	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
-	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:828)
 	... 8 more
-printing javac parameters to: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/javac.20240822_184812.args
-realpath: iteration3.diff: No such file or directory
-putting the diff for iteration 3 into 
-ending iteration 3, time taken: 7 seconds
-
-entering iteration 4
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:236: warning: (argument) $$ 4 $$ val $$ Parcel.writeString $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 7568, 7579 ) $$ incompatible argument for parameter val of Parcel.writeString.
-        dest.writeString(this.mLabel);
-                             ^
-  found   : @Initialized @MonotonicNonNull String
-  required: @Initialized @NonNull String
-../dataset/pre_wpi_without_s_floatingActionButtonSpeedDial/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:253: warning: (argument) $$ 4 $$ loader $$ Parcel.readParcelable $$ @Initialized @Nullable ClassLoader $$ @Initialized @NonNull ClassLoader $$ ( 8331, 8360 ) $$ incompatible argument for parameter loader of Parcel.readParcelable.
-                UiUtils.getDrawableFromBitmap((Bitmap) in.readParcelable(Bitmap.class.getClassLoader()));
-                                                                                                    ^
-  found   : @Initialized @Nullable ClassLoader
-  required: @Initialized @NonNull ClassLoader
-2 warnings
-An exception has occurred in the compiler (17.0.10). Please file a bug against the Java compiler via the Java bug reporting page (https://bugreport.java.com) after checking the Bug Database (https://bugs.java.com) for duplicates. Include your program, the following diagnostic, and the parameters passed to the Java compiler in your report. Thank you.
-com.sun.tools.javac.util.ClientCodeException: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
-	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:858)
-	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
-	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1394)
-	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1351)
-	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:946)
-	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
-	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
-	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
-	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
-Caused by: java.lang.NullPointerException: Cannot read field "fields" because "enclosingClass" is null
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage$1.processVariable(WholeProgramInferenceJavaParserStorage.java:866)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:1414)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitVariable(JointJavacJavaParserVisitor.java:189)
-	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:1045)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:565)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:499)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:189)
-	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:573)
-	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:480)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.createWrappersForClass(WholeProgramInferenceJavaParserStorage.java:871)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.addClassTree(WholeProgramInferenceJavaParserStorage.java:616)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceJavaParserStorage.preprocessClassTree(WholeProgramInferenceJavaParserStorage.java:587)
-	at org.checkerframework.common.wholeprograminference.WholeProgramInferenceImplementation.preprocessClassTree(WholeProgramInferenceImplementation.java:1154)
-	at org.checkerframework.framework.type.AnnotatedTypeFactory.setRoot(AnnotatedTypeFactory.java:915)
-	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.setRoot(GenericAnnotatedTypeFactory.java:449)
-	at org.checkerframework.common.basetype.BaseTypeVisitor.setRoot(BaseTypeVisitor.java:387)
-	at org.checkerframework.framework.source.SourceChecker.setRoot(SourceChecker.java:685)
-	at org.checkerframework.common.basetype.BaseTypeChecker.setRoot(BaseTypeChecker.java:167)
-	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1074)
-	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:559)
-	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:552)
-	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
-	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
-	... 8 more
-printing javac parameters to: /Users/erfanarvan/Desktop/comparisonPaper/wpi-njr-debug/wpi/javac.20240822_184819.args
-realpath: iteration4.diff: No such file or directory
-putting the diff for iteration 4 into 

@@ -13,40 +13,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.leinardi.android.speeddial;
-
+import javax.annotation.Nullable;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.content.res.ResourcesCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-
 public class SpeedDialOverlayLayout extends RelativeLayout {
+
     private static final String TAG = SpeedDialOverlayLayout.class.getSimpleName();
+
     private boolean mClickableOverlay;
+
     private int mAnimationDuration;
-    
+
     private OnClickListener mClickListener;
 
-    public SpeedDialOverlayLayout( Context context) {
+    public SpeedDialOverlayLayout(Context context) {
         super(context);
     }
 
-    public SpeedDialOverlayLayout( Context context,  AttributeSet attrs) {
+    public SpeedDialOverlayLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
-    public SpeedDialOverlayLayout( Context context,  AttributeSet attrs, @AttrRes int
-            defStyleAttr) {
+    public SpeedDialOverlayLayout(Context context, AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
@@ -106,7 +105,7 @@ public class SpeedDialOverlayLayout extends RelativeLayout {
     }
 
     @Override
-    public void setOnClickListener( OnClickListener clickListener) {
+    public void setOnClickListener(OnClickListener clickListener) {
         mClickListener = clickListener;
         super.setOnClickListener(hasClickableOverlay() ? clickListener : null);
     }
